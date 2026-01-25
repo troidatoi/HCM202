@@ -34,11 +34,25 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+const allowedOrigins = [
+  "https://mln-111-bajz.vercel.app",
+  "http://localhost:5173",
+  "http://localhost:3000",
+];
+
 // Middleware
 app.use(
   cors({
-    origin: "*", // Cho phép tất cả domain tạm thời
-    credentials: false, // Phải tắt credentials khi dùng wildcard
+    origin: (origin, callback) => {
+      // Cho phép các yêu cầu không có origin (như mobile apps hoặc curl)
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.indexOf(origin) !== -1) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
   })

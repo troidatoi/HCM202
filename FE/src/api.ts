@@ -23,6 +23,13 @@ const getApiUrl = () => {
 };
 
 const switchToNextApi = () => {
+  const isDev = import.meta.env.DEV || window.location.hostname === "localhost";
+
+  if (!isDev && currentApiIndex === 0) {
+    console.warn("⚠️ API chính thất bại nhưng không chuyển sang localhost vì đang ở production.");
+    return;
+  }
+
   currentApiIndex = (currentApiIndex + 1) % API_URLS.length;
   console.log(`🔄 Switching to API: ${getApiUrl()}`);
 };
@@ -79,9 +86,9 @@ api.interceptors.response.use(
   (response) => response,
   async (error) => {
     console.error(
-      "API Response Error:",
+      "❌ API Response Error:",
       error.response?.status,
-      error.response?.data
+      error.response?.data?.message || error.message || "Unknown error"
     );
 
     // Special handling for Render.com cold start
@@ -358,7 +365,7 @@ export const checkPhoneNumberExistsApi = async (
 ) => {
   const res = await api.get(
     `/accounts/check-phone/${phone}` +
-      (excludeId ? `?excludeId=${excludeId}` : "")
+    (excludeId ? `?excludeId=${excludeId}` : "")
   );
   return res.data;
 };
