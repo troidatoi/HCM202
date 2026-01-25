@@ -12,6 +12,6 @@ const storage = new CloudinaryStorage({
 });
 
 // Tạo middleware upload
-const upload = multer({ storage: storage });
+const upload = multer({ storage: storage as any });
 
 export default upload;

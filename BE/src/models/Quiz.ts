@@ -1,7 +1,7 @@
 import mongoose, { Schema, Document } from "mongoose";
 
-// Interface TypeScript cho Quiz
-export interface IQuiz extends Document {
+// Interface TypeScript cho Quiz (chứa field dữ liệu)
+export interface IQuiz {
   _id: string; // Custom string ID like "assist", "crafft"
   title: string;
   description: string;
@@ -11,6 +11,11 @@ export interface IQuiz extends Document {
   isActive: boolean;
   createdAt: Date;
   updatedAt: Date;
+}
+
+// Interface mở rộng Document để dùng với Mongoose (nếu cần dùng các method của Document)
+export interface IQuizDocument extends IQuiz, Document {
+  _id: any; // Ghi đè _id của Document nếu cần, hoặc để Mongoose tự xử lý qua generic
 }
 
 // Schema Mongoose cho Quiz

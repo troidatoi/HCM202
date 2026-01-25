@@ -100,7 +100,6 @@ const quizResultSchema = new Schema<IQuizResult>(
 quizResultSchema.index({ userId: 1, takenAt: -1 });
 quizResultSchema.index({ quizId: 1, takenAt: -1 });
 quizResultSchema.index({ riskLevel: 1, takenAt: -1 });
-quizResultSchema.index({ sessionId: 1 });
 
 // Virtual to calculate completion percentage
 quizResultSchema.virtual("completionPercentage").get(function () {
