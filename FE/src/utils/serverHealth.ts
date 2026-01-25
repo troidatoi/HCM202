@@ -1,5 +1,5 @@
 // Server health monitoring for Render.com cold start
-const RENDER_SERVER_URL = "https://swd392-g7-dupss.onrender.com/api";
+const RENDER_SERVER_URL = "https://mln111-1.onrender.com/api";
 
 interface ServerHealthStatus {
   isOnline: boolean;

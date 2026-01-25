@@ -127,7 +127,7 @@ export default function Profile() {
       setEditData(updated);
       setEditMode(false);
       setFieldError({}); // Clear any previous errors
-      
+
       // Cập nhật AuthContext để comment có thể sử dụng fullName mới
       await updateUserInfo();
     } catch (error: unknown) {
@@ -190,7 +190,7 @@ export default function Profile() {
 
       // Sử dụng API upload của backend với progress tracking
       const response = await axios.post(
-        "https://swd392-g7-dupss.onrender.com/api/uploads/upload",
+        "https://mln111-1.onrender.com/api/uploads/upload",
         formData,
         {
           headers: {
@@ -213,7 +213,7 @@ export default function Profile() {
           const updated = await getAccountByIdApi(user._id);
           setUser(updated);
           setEditData(updated);
-          
+
           // Cập nhật AuthContext để comment có thể sử dụng thông tin mới
           await updateUserInfo();
         }
@@ -278,11 +278,10 @@ export default function Profile() {
               {menuTabs.map((m) => (
                 <button
                   key={m.key}
-                  className={`text-left px-4 py-3 rounded-lg font-medium transition-colors ${
-                    tab === m.key
+                  className={`text-left px-4 py-3 rounded-lg font-medium transition-colors ${tab === m.key
                       ? "bg-amber-50 text-amber-800 shadow-sm border border-amber-200"
                       : "text-amber-700 hover:bg-amber-100"
-                  }`}
+                    }`}
                   onClick={() => setTab(m.key)}
                 >
                   {m.label}
@@ -427,11 +426,10 @@ export default function Profile() {
                               })
                             }
                             disabled={!editMode}
-                            className={`w-full px-4 py-2 rounded-lg border ${
-                              editMode
+                            className={`w-full px-4 py-2 rounded-lg border ${editMode
                                 ? "border-amber-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-200"
                                 : "bg-amber-50 border-amber-200"
-                            } transition-colors`}
+                              } transition-colors`}
                             placeholder="Nhập họ và tên"
                           />
                           {fieldError.fullName && (
@@ -474,13 +472,12 @@ export default function Profile() {
                               }
                             }}
                             disabled={!editMode}
-                            className={`w-full px-4 py-2 rounded-lg border ${
-                              fieldError.phoneNumber
+                            className={`w-full px-4 py-2 rounded-lg border ${fieldError.phoneNumber
                                 ? "border-red-500 focus:border-red-500 focus:ring-2 focus:ring-red-200"
                                 : editMode
-                                ? "border-blue-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
-                                : "bg-gray-50 border-gray-200"
-                            } transition-colors`}
+                                  ? "border-blue-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                                  : "bg-gray-50 border-gray-200"
+                              } transition-colors`}
                             placeholder="0xxxxxxxxx"
                           />
                           {fieldError.phoneNumber && (
@@ -506,11 +503,10 @@ export default function Profile() {
                               })
                             }
                             disabled={!editMode}
-                            className={`w-full px-4 py-2 rounded-lg border ${
-                              editMode
+                            className={`w-full px-4 py-2 rounded-lg border ${editMode
                                 ? "border-amber-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-200"
                                 : "bg-amber-50 border-amber-200"
-                            } transition-colors`}
+                              } transition-colors`}
                           >
                             <option value="">Chọn giới tính</option>
                             <option value="male">Nam</option>
@@ -533,11 +529,10 @@ export default function Profile() {
                               })
                             }
                             disabled={!editMode}
-                            className={`w-full px-4 py-2 rounded-lg border ${
-                              editMode
+                            className={`w-full px-4 py-2 rounded-lg border ${editMode
                                 ? "border-amber-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-200"
                                 : "bg-amber-50 border-amber-200"
-                            } transition-colors`}
+                              } transition-colors`}
                             min="1900"
                             max={new Date().getFullYear()}
                             placeholder="Nhập năm sinh"
@@ -597,11 +592,10 @@ export default function Profile() {
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
                     {/* Đã xuất bản */}
                     <div
-                      className={`bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-6 shadow-lg border-2 flex flex-col items-center justify-center transition-all cursor-pointer hover:shadow-xl hover:scale-105 ${
-                        filterStatus === "published"
+                      className={`bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-6 shadow-lg border-2 flex flex-col items-center justify-center transition-all cursor-pointer hover:shadow-xl hover:scale-105 ${filterStatus === "published"
                           ? "border-green-500 ring-4 ring-green-200"
                           : "border-green-200 hover:border-green-300"
-                      }`}
+                        }`}
                       onClick={() => setFilterStatus("published")}
                     >
                       <div className="p-4 bg-gradient-to-br from-green-100 to-emerald-100 rounded-full mb-4 flex items-center justify-center">
@@ -630,11 +624,10 @@ export default function Profile() {
 
                     {/* Chưa duyệt */}
                     <div
-                      className={`bg-gradient-to-br from-yellow-50 to-amber-50 rounded-2xl p-6 shadow-lg border-2 flex flex-col items-center justify-center transition-all cursor-pointer hover:shadow-xl hover:scale-105 ${
-                        filterStatus === "pending"
+                      className={`bg-gradient-to-br from-yellow-50 to-amber-50 rounded-2xl p-6 shadow-lg border-2 flex flex-col items-center justify-center transition-all cursor-pointer hover:shadow-xl hover:scale-105 ${filterStatus === "pending"
                           ? "border-yellow-500 ring-4 ring-yellow-200"
                           : "border-yellow-200 hover:border-yellow-300"
-                      }`}
+                        }`}
                       onClick={() => setFilterStatus("pending")}
                     >
                       <div className="p-4 bg-gradient-to-br from-yellow-100 to-amber-100 rounded-full mb-4 flex items-center justify-center">
@@ -663,11 +656,10 @@ export default function Profile() {
 
                     {/* Ngừng xuất bản */}
                     <div
-                      className={`bg-gradient-to-br from-orange-50 to-amber-50 rounded-2xl p-6 shadow-lg border-2 flex flex-col items-center justify-center transition-all cursor-pointer hover:shadow-xl hover:scale-105 ${
-                        filterStatus === "unpublished"
+                      className={`bg-gradient-to-br from-orange-50 to-amber-50 rounded-2xl p-6 shadow-lg border-2 flex flex-col items-center justify-center transition-all cursor-pointer hover:shadow-xl hover:scale-105 ${filterStatus === "unpublished"
                           ? "border-orange-500 ring-4 ring-orange-200"
                           : "border-orange-200 hover:border-orange-300"
-                      }`}
+                        }`}
                       onClick={() => setFilterStatus("unpublished")}
                     >
                       <div className="p-4 bg-gradient-to-br from-orange-100 to-amber-100 rounded-full mb-4 flex items-center justify-center">
@@ -696,11 +688,10 @@ export default function Profile() {
 
                     {/* Đã từ chối */}
                     <div
-                      className={`bg-gradient-to-br from-red-50 to-rose-50 rounded-2xl p-6 shadow-lg border-2 flex flex-col items-center justify-center transition-all cursor-pointer hover:shadow-xl hover:scale-105 ${
-                        filterStatus === "rejected"
+                      className={`bg-gradient-to-br from-red-50 to-rose-50 rounded-2xl p-6 shadow-lg border-2 flex flex-col items-center justify-center transition-all cursor-pointer hover:shadow-xl hover:scale-105 ${filterStatus === "rejected"
                           ? "border-red-500 ring-4 ring-red-200"
                           : "border-red-200 hover:border-red-300"
-                      }`}
+                        }`}
                       onClick={() => setFilterStatus("rejected")}
                     >
                       <div className="p-4 bg-gradient-to-br from-red-100 to-rose-100 rounded-full mb-4 flex items-center justify-center">
@@ -735,12 +726,12 @@ export default function Profile() {
                         {filterStatus === "published"
                           ? "Bài viết đã xuất bản"
                           : filterStatus === "pending"
-                          ? "Bài viết chưa duyệt"
-                          : filterStatus === "unpublished"
-                          ? "Bài viết ngừng xuất bản"
-                          : filterStatus === "rejected"
-                          ? "Bài viết bị từ chối"
-                          : "Tất cả bài viết"}
+                            ? "Bài viết chưa duyệt"
+                            : filterStatus === "unpublished"
+                              ? "Bài viết ngừng xuất bản"
+                              : filterStatus === "rejected"
+                                ? "Bài viết bị từ chối"
+                                : "Tất cả bài viết"}
                       </h3>
                       <div className="text-sm text-amber-600">
                         {filteredBlogs.length} bài viết
@@ -803,37 +794,35 @@ export default function Profile() {
                                   </svg>
                                   {(blog.author === user?.fullName ||
                                     blog.author === user?.username) &&
-                                  blog.anDanh
+                                    blog.anDanh
                                     ? "Ẩn danh"
                                     : blog.author}
                                 </div>
                               </div>
                               <div
-                                className={`text-sm ${
-                                  blog.published === "published"
+                                className={`text-sm ${blog.published === "published"
                                     ? "text-green-700"
                                     : blog.published === "draft"
-                                    ? "text-yellow-700"
-                                    : blog.published === "unpublished"
-                                    ? "text-orange-700"
-                                    : "text-red-700"
-                                } font-semibold inline-block px-3 py-1.5 rounded-full ${
-                                  blog.published === "published"
+                                      ? "text-yellow-700"
+                                      : blog.published === "unpublished"
+                                        ? "text-orange-700"
+                                        : "text-red-700"
+                                  } font-semibold inline-block px-3 py-1.5 rounded-full ${blog.published === "published"
                                     ? "bg-green-100 border-2 border-green-200"
                                     : blog.published === "draft"
-                                    ? "bg-yellow-100 border-2 border-yellow-200"
-                                    : blog.published === "unpublished"
-                                    ? "bg-orange-100 border-2 border-orange-200"
-                                    : "bg-red-100 border-2 border-red-200"
-                                }`}
+                                      ? "bg-yellow-100 border-2 border-yellow-200"
+                                      : blog.published === "unpublished"
+                                        ? "bg-orange-100 border-2 border-orange-200"
+                                        : "bg-red-100 border-2 border-red-200"
+                                  }`}
                               >
                                 {blog.published === "published"
                                   ? "Đã xuất bản"
                                   : blog.published === "draft"
-                                  ? "Chưa duyệt"
-                                  : blog.published === "unpublished"
-                                  ? "Ngừng xuất bản"
-                                  : "Đã từ chối"}
+                                    ? "Chưa duyệt"
+                                    : blog.published === "unpublished"
+                                      ? "Ngừng xuất bản"
+                                      : "Đã từ chối"}
                               </div>
                               {blog.published === "rejected" &&
                                 blog.rejectionReason && (

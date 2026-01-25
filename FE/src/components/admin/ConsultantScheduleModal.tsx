@@ -330,7 +330,7 @@ const ConsultantScheduleModal: React.FC<ConsultantScheduleModalProps> = ({
   const handleBookedSlotClick = async (slotTimeId: string) => {
     try {
       const response = await axios.get(
-        `https://swd392-g7-dupss.onrender.com/api/appointments/slotTime/${slotTimeId}`
+        `https://mln111-1.onrender.com/api/appointments/slotTime/${slotTimeId}`
       );
       if (response.data && response.data.length > 0) {
         setAppointmentDetail(response.data[0]);
@@ -403,22 +403,20 @@ const ConsultantScheduleModal: React.FC<ConsultantScheduleModalProps> = ({
         </div>
         <div className="mb-2 flex justify-end gap-2">
           <button
-            className={`px-4 py-2 rounded-lg bg-blue-600 text-white font-semibold shadow hover:bg-blue-700 transition-all duration-200 text-sm ${
-              Object.values(selectedSlots).every((v) => !v) || isSaving
+            className={`px-4 py-2 rounded-lg bg-blue-600 text-white font-semibold shadow hover:bg-blue-700 transition-all duration-200 text-sm ${Object.values(selectedSlots).every((v) => !v) || isSaving
                 ? "opacity-50 cursor-not-allowed"
                 : ""
-            }`}
+              }`}
             onClick={handleSaveAllSelectedSlots}
             disabled={Object.values(selectedSlots).every((v) => !v) || isSaving}
           >
             {isSaving ? "Đang tạo..." : "Tạo lịch"}
           </button>
           <button
-            className={`px-4 py-2 rounded-lg bg-red-600 text-white font-semibold shadow hover:bg-red-700 transition-all duration-200 text-sm ${
-              Object.values(selectedSlots).every((v) => !v) || isSaving
+            className={`px-4 py-2 rounded-lg bg-red-600 text-white font-semibold shadow hover:bg-red-700 transition-all duration-200 text-sm ${Object.values(selectedSlots).every((v) => !v) || isSaving
                 ? "opacity-50 cursor-not-allowed"
                 : ""
-            }`}
+              }`}
             onClick={handleDeleteAllSelectedSlots}
             disabled={Object.values(selectedSlots).every((v) => !v) || isSaving}
           >
@@ -473,13 +471,12 @@ const ConsultantScheduleModal: React.FC<ConsultantScheduleModalProps> = ({
                     <span className="text-base">{day}</span>
                     <button
                       onClick={() => toggleFullDay(day)}
-                      className={`px-2 py-1 text-xs rounded-full transition-all duration-200 border ${
-                        timeSlots.every(
-                          (slot) => selectedSlots[`${day}-${slot}`]
-                        )
+                      className={`px-2 py-1 text-xs rounded-full transition-all duration-200 border ${timeSlots.every(
+                        (slot) => selectedSlots[`${day}-${slot}`]
+                      )
                           ? "bg-green-100 text-green-700 border-green-300"
                           : "bg-white text-gray-500 border-gray-200 hover:bg-green-50"
-                      }`}
+                        }`}
                     >
                       {timeSlots.every(
                         (slot) => selectedSlots[`${day}-${slot}`]
@@ -515,15 +512,14 @@ const ConsultantScheduleModal: React.FC<ConsultantScheduleModalProps> = ({
                   return (
                     <div
                       key={day + slot}
-                      className={`h-10 w-full flex items-center justify-center rounded-lg transition-all duration-200 text-xs border ${
-                        isBooked
+                      className={`h-10 w-full flex items-center justify-center rounded-lg transition-all duration-200 text-xs border ${isBooked
                           ? "bg-red-100 text-red-700 cursor-pointer border-red-100"
                           : isSelected
-                          ? "bg-green-200 text-green-800 border-green-400"
-                          : slotObj
-                          ? "bg-blue-100 text-blue-700 hover:bg-blue-200 border-blue-100"
-                          : "bg-white hover:bg-blue-50 border-gray-100"
-                      }`}
+                            ? "bg-green-200 text-green-800 border-green-400"
+                            : slotObj
+                              ? "bg-blue-100 text-blue-700 hover:bg-blue-200 border-blue-100"
+                              : "bg-white hover:bg-blue-50 border-gray-100"
+                        }`}
                       onMouseDown={() => {
                         if (isBooked) {
                           handleBookedSlotClick(slotObj._id);
@@ -675,20 +671,20 @@ const ConsultantScheduleModal: React.FC<ConsultantScheduleModalProps> = ({
               <div className="mb-2">
                 <b>Thời gian:</b>{" "}
                 {appointmentDetail?.slotTime_id?.start_time &&
-                appointmentDetail?.slotTime_id?.end_time
+                  appointmentDetail?.slotTime_id?.end_time
                   ? `${new Date(
-                      appointmentDetail.slotTime_id.start_time
-                    ).toLocaleTimeString([], {
-                      hour: "2-digit",
-                      minute: "2-digit",
-                    })} - ${new Date(
-                      appointmentDetail.slotTime_id.end_time
-                    ).toLocaleTimeString([], {
-                      hour: "2-digit",
-                      minute: "2-digit",
-                    })} ${new Date(
-                      appointmentDetail.slotTime_id.start_time
-                    ).toLocaleDateString()}`
+                    appointmentDetail.slotTime_id.start_time
+                  ).toLocaleTimeString([], {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  })} - ${new Date(
+                    appointmentDetail.slotTime_id.end_time
+                  ).toLocaleTimeString([], {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  })} ${new Date(
+                    appointmentDetail.slotTime_id.start_time
+                  ).toLocaleDateString()}`
                   : "--"}
               </div>
               <div className="mb-2">

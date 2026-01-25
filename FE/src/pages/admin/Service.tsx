@@ -223,7 +223,7 @@ const Service: React.FC = () => {
       formData.append("image", file);
 
       const response = await axios.post(
-        "https://swd392-g7-dupss.onrender.com/api/uploads/upload",
+        "https://mln111-1.onrender.com/api/uploads/upload",
         formData,
         {
           headers: {
@@ -835,11 +835,10 @@ const Service: React.FC = () => {
                 </td>
                 <td className="px-4 py-3">
                   <span
-                    className={`px-2 py-1 text-xs rounded-full ${
-                      service.status === "active"
+                    className={`px-2 py-1 text-xs rounded-full ${service.status === "active"
                         ? "bg-green-100 text-green-800"
                         : "bg-red-100 text-red-800"
-                    }`}
+                      }`}
                   >
                     {service.status === "active"
                       ? "Hoạt động"
@@ -889,11 +888,10 @@ const Service: React.FC = () => {
         {Array.from({ length: totalPages }, (_, i) => (
           <button
             key={i}
-            className={`px-3 py-1 rounded ${
-              currentPage === i + 1
+            className={`px-3 py-1 rounded ${currentPage === i + 1
                 ? "bg-amber-600 text-white"
                 : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-            }`}
+              }`}
             onClick={() => setCurrentPage(i + 1)}
           >
             {i + 1}
@@ -976,11 +974,10 @@ const Service: React.FC = () => {
                     onChange={handleInputChange}
                     onBlur={handleFieldBlur}
                     placeholder="Nhập tên dịch vụ"
-                    className={`block w-full rounded-md py-2 px-3 text-sm border focus:ring-amber-500 focus:border-amber-500 ${
-                      errors.name
+                    className={`block w-full rounded-md py-2 px-3 text-sm border focus:ring-amber-500 focus:border-amber-500 ${errors.name
                         ? "border-red-300 bg-red-50"
                         : "border-gray-300"
-                    }`}
+                      }`}
                   />
                   {errors.name && (
                     <p className="text-red-500 text-xs mt-1">{errors.name}</p>
@@ -1003,11 +1000,10 @@ const Service: React.FC = () => {
                     onBlur={handleFieldBlur}
                     step="1000"
                     placeholder="Nhập giá dịch vụ"
-                    className={`block w-full rounded-md py-2 px-3 text-sm border focus:ring-amber-500 focus:border-amber-500 ${
-                      errors.price
+                    className={`block w-full rounded-md py-2 px-3 text-sm border focus:ring-amber-500 focus:border-amber-500 ${errors.price
                         ? "border-red-300 bg-red-50"
                         : "border-gray-300"
-                    }`}
+                      }`}
                   />
                   {errors.price && (
                     <p className="text-red-500 text-xs mt-1">{errors.price}</p>
@@ -1030,11 +1026,10 @@ const Service: React.FC = () => {
                   onBlur={handleFieldBlur}
                   rows={3}
                   placeholder="Nhập mô tả chi tiết về dịch vụ"
-                  className={`block w-full rounded-md py-2 px-3 text-sm border focus:ring-amber-500 focus:border-amber-500 ${
-                    errors.description
+                  className={`block w-full rounded-md py-2 px-3 text-sm border focus:ring-amber-500 focus:border-amber-500 ${errors.description
                       ? "border-red-300 bg-red-50"
                       : "border-gray-300"
-                  }`}
+                    }`}
                 />
                 {errors.description && (
                   <p className="text-red-500 text-xs mt-1">
@@ -1154,11 +1149,10 @@ const Service: React.FC = () => {
                 </button>
                 <button
                   type="submit"
-                  className={`px-4 py-2 text-sm font-medium text-white rounded-md transition-colors ${
-                    uploading
+                  className={`px-4 py-2 text-sm font-medium text-white rounded-md transition-colors ${uploading
                       ? "bg-amber-400 cursor-not-allowed"
                       : "bg-amber-600 hover:bg-amber-700"
-                  }`}
+                    }`}
                   disabled={uploading}
                 >
                   {uploading ? "Đang tải lên..." : "Tạo dịch vụ"}
@@ -1214,9 +1208,8 @@ const Service: React.FC = () => {
                   value={formData.name}
                   onChange={handleInputChange}
                   onBlur={handleFieldBlur}
-                  className={`w-full px-4 py-2 border rounded-lg focus:ring-amber-500 focus:border-amber-500 ${
-                    errors.name ? "border-red-300 bg-red-50" : "border-gray-300"
-                  }`}
+                  className={`w-full px-4 py-2 border rounded-lg focus:ring-amber-500 focus:border-amber-500 ${errors.name ? "border-red-300 bg-red-50" : "border-gray-300"
+                    }`}
                 />
                 {errors.name && (
                   <p className="text-red-500 text-xs mt-1">{errors.name}</p>
@@ -1232,11 +1225,10 @@ const Service: React.FC = () => {
                   onChange={handleInputChange}
                   onBlur={handleFieldBlur}
                   rows={4}
-                  className={`w-full px-4 py-2 border rounded-lg focus:ring-amber-500 focus:border-amber-500 ${
-                    errors.description
+                  className={`w-full px-4 py-2 border rounded-lg focus:ring-amber-500 focus:border-amber-500 ${errors.description
                       ? "border-red-300 bg-red-50"
                       : "border-gray-300"
-                  }`}
+                    }`}
                 ></textarea>
                 {errors.description && (
                   <p className="text-red-500 text-xs mt-1">
@@ -1254,11 +1246,10 @@ const Service: React.FC = () => {
                   value={formData.price}
                   onChange={handleInputChange}
                   onBlur={handleFieldBlur}
-                  className={`w-full px-4 py-2 border rounded-lg focus:ring-amber-500 focus:border-amber-500 ${
-                    errors.price
+                  className={`w-full px-4 py-2 border rounded-lg focus:ring-amber-500 focus:border-amber-500 ${errors.price
                       ? "border-red-300 bg-red-50"
                       : "border-gray-300"
-                  }`}
+                    }`}
                 />
                 {errors.price && (
                   <p className="text-red-500 text-xs mt-1">{errors.price}</p>
@@ -1287,9 +1278,8 @@ const Service: React.FC = () => {
                     type="button"
                     onClick={handleSelectImage}
                     disabled={uploading}
-                    className={`px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white ${
-                      uploading ? "bg-gray-400" : "bg-amber-600 hover:bg-amber-700"
-                    } focus:outline-none`}
+                    className={`px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white ${uploading ? "bg-gray-400" : "bg-amber-600 hover:bg-amber-700"
+                      } focus:outline-none`}
                   >
                     {uploading ? "Đang tải..." : "Chọn ảnh"}
                   </button>

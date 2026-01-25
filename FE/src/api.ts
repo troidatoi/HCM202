@@ -12,7 +12,7 @@ export interface BlogData {
 
 // API URLs - with fallback
 const API_URLS = [
-  import.meta.env.VITE_API_URL || "https://swd392-g7-dupss.onrender.com/api",
+  import.meta.env.VITE_API_URL || "https://mln111-1.onrender.com/api",
   "http://localhost:5000/api", // Local development fallback
 ];
 

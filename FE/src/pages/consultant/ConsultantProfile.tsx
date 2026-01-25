@@ -182,7 +182,7 @@ export default function ConsultantProfile() {
       setEditData(updated);
       setEditMode(false);
       showToast("success", "Cập nhật thành công!");
-      
+
       // Cập nhật AuthContext để comment có thể sử dụng fullName mới
       await updateUserInfo();
     } catch {
@@ -202,7 +202,7 @@ export default function ConsultantProfile() {
       const updated = await getAccountByIdApi(user._id);
       setUser(updated);
       setEditData(updated);
-      
+
       // Cập nhật AuthContext để comment có thể sử dụng fullName mới
       await updateUserInfo();
     } catch (err: unknown) {
@@ -389,7 +389,7 @@ export default function ConsultantProfile() {
       const formData = new FormData();
       formData.append("image", file);
       const response = await fetch(
-        "https://swd392-g7-dupss.onrender.com/api/uploads/upload",
+        "https://mln111-1.onrender.com/api/uploads/upload",
         {
           method: "POST",
           headers: {
@@ -534,9 +534,8 @@ export default function ConsultantProfile() {
                       </label>
                       <input
                         disabled={!editMode}
-                        className={`w-full border border-gray-200 rounded-md px-4 py-2 text-gray-700 ${
-                          !editMode ? "bg-gray-50" : "bg-white"
-                        }`}
+                        className={`w-full border border-gray-200 rounded-md px-4 py-2 text-gray-700 ${!editMode ? "bg-gray-50" : "bg-white"
+                          }`}
                         value={
                           editMode
                             ? editData.fullName || ""
@@ -561,9 +560,8 @@ export default function ConsultantProfile() {
                       </label>
                       <input
                         disabled={!editMode}
-                        className={`w-full border border-gray-200 rounded-md px-4 py-2 text-gray-700 ${
-                          !editMode ? "bg-gray-50" : "bg-white"
-                        }`}
+                        className={`w-full border border-gray-200 rounded-md px-4 py-2 text-gray-700 ${!editMode ? "bg-gray-50" : "bg-white"
+                          }`}
                         value={
                           editMode
                             ? editData.phoneNumber || ""
@@ -647,14 +645,13 @@ export default function ConsultantProfile() {
                       </label>
                       <input
                         type="date"
-                        className={`w-full border border-gray-200 rounded-md px-4 py-2 text-gray-700 ${
-                          !editConsultant ? "bg-gray-50" : "bg-white"
-                        }`}
+                        className={`w-full border border-gray-200 rounded-md px-4 py-2 text-gray-700 ${!editConsultant ? "bg-gray-50" : "bg-white"
+                          }`}
                         value={
                           editConsultant
                             ? formatDateForInput(
-                                consultantEditData.startDateofWork
-                              )
+                              consultantEditData.startDateofWork
+                            )
                             : formatDateForInput(consultant?.startDateofWork)
                         }
                         onChange={(e) =>
@@ -673,9 +670,8 @@ export default function ConsultantProfile() {
                       </label>
                       <textarea
                         rows={4}
-                        className={`w-full border border-gray-200 rounded-md px-4 py-2 text-gray-700 ${
-                          !editConsultant ? "bg-gray-50" : "bg-white"
-                        }`}
+                        className={`w-full border border-gray-200 rounded-md px-4 py-2 text-gray-700 ${!editConsultant ? "bg-gray-50" : "bg-white"
+                          }`}
                         placeholder="Viết một vài dòng giới thiệu về kinh nghiệm và chuyên môn của bạn..."
                         value={
                           editConsultant
@@ -882,9 +878,8 @@ export default function ConsultantProfile() {
       {/* Toasts and Modals */}
       {toast && (
         <div
-          className={`fixed top-6 right-6 z-50 px-6 py-3 rounded-lg shadow-lg text-white text-base font-semibold transition-all ${
-            toast.type === "success" ? "bg-green-500" : "bg-red-500"
-          }`}
+          className={`fixed top-6 right-6 z-50 px-6 py-3 rounded-lg shadow-lg text-white text-base font-semibold transition-all ${toast.type === "success" ? "bg-green-500" : "bg-red-500"
+            }`}
         >
           {toast.message}
         </div>
@@ -1074,7 +1069,7 @@ function CertificateModal({
       const formData = new FormData();
       formData.append("image", file);
       const res = await fetch(
-        "https://swd392-g7-dupss.onrender.com/api/uploads/upload",
+        "https://mln111-1.onrender.com/api/uploads/upload",
         {
           method: "POST",
           headers: {

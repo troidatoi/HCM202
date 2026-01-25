@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-const BACKEND_URL = "https://swd392-g7-dupss.onrender.com/api";
+const BACKEND_URL = "https://mln111-1.onrender.com/api";
 
 async function checkBackendHealth() {
   console.log("🔍 Checking backend health...");

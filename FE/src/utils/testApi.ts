@@ -1,5 +1,5 @@
 // Test script to check backend API accessibility
-const API_BASE_URL = "https://swd392-g7-dupss.onrender.com/api";
+const API_BASE_URL = "https://mln111-1.onrender.com/api";
 
 export const testBackendConnection = async () => {
   console.log("🔍 Testing backend connection...");
@@ -77,8 +77,7 @@ export const testLoginEndpoint = async () => {
     } else {
       const errorData = await response.json();
       console.log(
-        `❌ Login endpoint: ${response.status} - ${
-          errorData.message || "Unknown error"
+        `❌ Login endpoint: ${response.status} - ${errorData.message || "Unknown error"
         }`
       );
       // Đây là lỗi bình thường vì test với tài khoản không tồn tại
