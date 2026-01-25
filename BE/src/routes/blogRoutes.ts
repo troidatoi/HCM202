@@ -21,9 +21,9 @@ router.get("/", getAllBlogs);
 // Lấy blog theo id
 router.get("/:id", getBlogById);
 // Tạo blog mới (có upload ảnh)
-router.post("/", upload.single("image"), createBlog);
+router.post("/", (upload as any).single("image"), createBlog);
 // Cập nhật blog (có upload ảnh)
-router.put("/:id", upload.single("image"), updateBlog);
+router.put("/:id", (upload as any).single("image"), updateBlog);
 // Cập nhật trạng thái blog (chỉ admin)
 router.patch("/:id/status", authMiddleware, roleMiddleware(["admin"]), updateBlogStatus);
 // Xóa blog
