@@ -253,10 +253,10 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
           <div>
             {/* Logo */}
             <div className="flex items-center justify-center h-16">
-              <Link to={baseUrl} className="text-xl font-bold text-amber-800">
+              <Link to={baseUrl} className="text-xl font-bold text-red-800 text-center px-4">
                 {user?.role === "admin"
-                  ? "PhilosoSpace Admin"
-                  : "PhilosoSpace Consultant"}
+                  ? "Tạp chí Hùng Admin"
+                  : "Cộng tác viên"}
               </Link>
             </div>
             {/* Navigation */}
@@ -266,11 +266,10 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
                   <li key={item.path}>
                     <Link
                       to={item.path}
-                      className={`flex items-center space-x-3 px-4 py-2.5 rounded-lg transition-colors ${
-                        isActive(item.path)
+                      className={`flex items-center space-x-3 px-4 py-2.5 rounded-lg transition-colors ${isActive(item.path)
                           ? "bg-amber-50 text-amber-800 border border-amber-200"
                           : "text-amber-700 hover:bg-amber-50/50 hover:text-amber-800"
-                      }`}
+                        }`}
                     >
                       {item.icon}
                       <span>{item.name}</span>
@@ -283,7 +282,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
           {/* Footer */}
           <div className="p-4 border-t">
             <div className="text-center text-xs text-gray-400">
-              @2025 PHILOSOSPACE
+              @2026 TẠP CHÍ HÙNG
             </div>
           </div>
         </div>

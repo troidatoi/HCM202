@@ -43,23 +43,23 @@ function BlogDetailPage() {
   useEffect(() => {
     const fetchBlog = async () => {
       if (!id) return;
-      
+
       setLoading(true);
       setError(null); // Reset error state
-      
+
       try {
         const blogData = await getBlogByIdApi(id);
-        
+
         // Nếu blog chưa được xuất bản, chuyển hướng về trang blogs
         if (blogData.published !== 'published') {
           setError('Bài viết này chưa được xuất bản');
           return;
         }
-        
+
         setBlog(blogData);
-        
+
         // Set page title
-        document.title = `${blogData.title} | PhilosoSpace Blog`;
+        document.title = `${blogData.title} | Tạp chí Hùng`;
 
         // Lấy bài viết liên quan theo tag
         if (blogData.topics && blogData.topics.length > 0) {
@@ -92,10 +92,10 @@ function BlogDetailPage() {
 
   // Format date
   const formatDate = (dateString: string) => {
-    const options: Intl.DateTimeFormatOptions = { 
-      year: 'numeric', 
-      month: 'long', 
-      day: 'numeric' 
+    const options: Intl.DateTimeFormatOptions = {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
     };
     return new Date(dateString).toLocaleDateString('vi-VN', options);
   };
@@ -163,7 +163,7 @@ function BlogDetailPage() {
                   <span className="text-xs text-gray-500 mb-1">{formatDate(item.createdAt)}</span>
                   <h4 className="font-semibold text-gray-800 mb-2 line-clamp-2">{item.title}</h4>
                   <div className="flex flex-wrap gap-1 mb-2">
-                    {item.topics && item.topics.slice(0,2).map((topic, idx) => (
+                    {item.topics && item.topics.slice(0, 2).map((topic, idx) => (
                       <span key={idx} className="text-xs bg-cyan-50 text-cyan-600 px-2 py-0.5 rounded-full">{topic}</span>
                     ))}
                   </div>

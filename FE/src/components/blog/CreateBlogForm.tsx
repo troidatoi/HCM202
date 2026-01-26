@@ -100,12 +100,12 @@ const CreateBlogForm: React.FC<CreateBlogFormProps> = ({
     } else if (tieuDe.trim().length > 150) {
       errors.tieuDe = "Tiêu đề không được quá 150 ký tự";
     }
-    
+
     // Validate authorId (tác giả sẽ lấy từ user đăng nhập)
     if (!tacGia.trim()) {
       errors.tacGia = "Không tìm thấy thông tin tác giả. Vui lòng đăng nhập lại.";
     }
-    
+
     // Validate nội dung: kiểm tra text thuần
     const plainText = noiDung.trim();
     if (!plainText) {
@@ -155,13 +155,13 @@ const CreateBlogForm: React.FC<CreateBlogFormProps> = ({
     try {
       // Lưu tên tác giả thật trong trường hợp ẩn danh
       let realAuthor = tacGia;
-      
+
       // Nếu đang trong chế độ ẩn danh và trường tacGia đã bị thay đổi thành "Ẩn danh"
       // thì phục hồi lại giá trị ban đầu từ initialData hoặc userInfo
       if (anDanh && tacGia === "Ẩn danh") {
         realAuthor = initialData?.authorId || userInfo?._id || "";
       }
-      
+
       const blogData: BlogData = {
         title: tieuDe,
         content: noiDung,
@@ -200,10 +200,10 @@ const CreateBlogForm: React.FC<CreateBlogFormProps> = ({
       <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-4 sm:p-6 md:p-8">
         <div className="mb-6 sm:mb-8 text-center">
           <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-2">
-            {initialData ? "Sửa Blog" : "Tạo Blog Mới"}
+            {initialData ? "Sửa Bài Viết" : "Tạo Bài Viết Mới"}
           </h2>
           <p className="text-sm sm:text-base text-gray-600">
-            Chia sẻ kiến thức, cảm xúc hoặc kinh nghiệm của bạn với cộng đồng PhilosoSpace!
+            Chia sẻ kiến thức và cảm nhận về Tư tưởng Hồ Chí Minh với cộng đồng Tạp chí Hùng!
           </p>
         </div>
         <form onSubmit={handleSubmit} className="space-y-6 w-full">
@@ -340,7 +340,7 @@ const CreateBlogForm: React.FC<CreateBlogFormProps> = ({
               </p>
             )}
           </div>
-          
+
           {/* Trạng thái xuất bản - chỉ hiển thị cho admin */}
           {isAdmin && (
             <div>
@@ -357,7 +357,7 @@ const CreateBlogForm: React.FC<CreateBlogFormProps> = ({
               </select>
             </div>
           )}
-          
+
           <div className="flex flex-col sm:flex-row justify-end gap-3 pt-4 sm:pt-6">
             <button
               type="button"

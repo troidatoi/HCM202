@@ -44,8 +44,8 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }: SidebarProps) => {
         {/* Logo */}
         <div className="flex items-center justify-between p-4 border-b border-gray-200">
           {!isCollapsed && (
-            <Link to="/admin" className="text-xl font-bold text-amber-800">
-              PhilosoSpace Admin
+            <Link to="/admin" className="text-xl font-bold text-red-800">
+              Tạp chí Hùng Admin
             </Link>
           )}
           <button
@@ -75,11 +75,10 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }: SidebarProps) => {
               <li key={item.path}>
                 <Link
                   to={item.path}
-                  className={`flex items-center ${isCollapsed ? 'justify-center' : 'justify-start'} px-4 py-3 text-sm font-medium rounded-lg transition-colors ${
-                    isActive(item.path)
+                  className={`flex items-center ${isCollapsed ? 'justify-center' : 'justify-start'} px-4 py-3 text-sm font-medium rounded-lg transition-colors ${isActive(item.path)
                       ? 'bg-amber-50 text-amber-800'
                       : 'text-amber-700 hover:bg-amber-50 hover:text-amber-800'
-                  }`}
+                    }`}
                 >
                   <svg
                     className="w-6 h-6 flex-shrink-0"
@@ -103,12 +102,12 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }: SidebarProps) => {
 
         {/* Footer PHILOSOSPACE luôn cố định dưới cùng */}
         <div className="p-4 border-t">
-          <div className="text-center text-xs text-gray-400">@2025 PHILOSOSPACE</div>
+          <div className="text-center text-xs text-gray-400">@2026 TẠP CHÍ HÙNG</div>
           <div className="text-sm font-medium text-[#1c1c1c]">
             {user?.fullName ?? "User Name"}
           </div>
           <div className="text-xs text-gray-500">
-            {user?.role === "admin" ? "PhilosoSpace Admin" : "Consultant"}
+            {user?.role === "admin" ? "Tạp chí Hùng Admin" : "Cộng tác viên"}
           </div>
         </div>
       </div>

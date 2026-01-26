@@ -21,7 +21,7 @@ interface User {
   email: string;
   phoneNumber: string;
 }
- 
+
 interface Consultant {
   _id: string;
   userId: string;
@@ -171,7 +171,7 @@ function ConsultantDetailPage() {
       navigate('/login');
       return;
     }
-    
+
     if (!user.isVerified) {
       navigate('/verify-otp');
       return;
@@ -328,13 +328,13 @@ function ConsultantDetailPage() {
             <div className="flex flex-col gap-1 text-gray-500 text-sm w-full items-center mb-4">
               <span>Email: {consultant.accountId?.email || 'Không có email'}</span>
               <span>SĐT: {consultant.accountId?.phoneNumber || 'Không có số điện thoại'}</span>
-              <span>Số năm làm việc tại PhilosoSpace: {(() => {
-                  if (!consultant.startDateofWork) return 'Chưa cập nhật';
-                  const startYear = new Date(consultant.startDateofWork).getFullYear();
-                  if (isNaN(startYear)) return 'Chưa cập nhật';
-                  const currentYear = new Date().getFullYear();
-                  const years = currentYear - startYear;
-                  return years >= 0 ? `${years} năm` : 'Chưa cập nhật';
+              <span>Số năm cộng tác tại Tạp chí Hùng: {(() => {
+                if (!consultant.startDateofWork) return 'Chưa cập nhật';
+                const startYear = new Date(consultant.startDateofWork).getFullYear();
+                if (isNaN(startYear)) return 'Chưa cập nhật';
+                const currentYear = new Date().getFullYear();
+                const years = currentYear - startYear;
+                return years >= 0 ? `${years} năm` : 'Chưa cập nhật';
               })()}</span>
             </div>
             {/* Certificates */}
@@ -394,7 +394,7 @@ function ConsultantDetailPage() {
                         onClick={() => setCurrentWeek(0)}
                         aria-label="Tuần trước"
                       >
-                        <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                        <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
                       </button>
                     </div>
                     {weekDays.map((day) => (
@@ -410,7 +410,7 @@ function ConsultantDetailPage() {
                         onClick={() => setCurrentWeek(1)}
                         aria-label="Tuần sau"
                       >
-                        <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                        <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
                       </button>
                     </div>
                   </div>
@@ -436,7 +436,7 @@ function ConsultantDetailPage() {
                           }
                           return dayOfWeek === day && hour === slot;
                         });
-                        
+
                         const isBooked = slotObj?.status === 'booked';
                         const isAvailable = slotObj?.status === 'available';
                         const isPast = isPastSlot(day, slot);
@@ -447,8 +447,8 @@ function ConsultantDetailPage() {
                             className={`h-14 w-full flex items-center justify-center border-t border-l border-gray-200 transition-all focus:outline-none
                               ${isPast ? 'bg-gray-100 text-gray-500 cursor-not-allowed' :
                                 isBooked ? 'bg-red-200 text-red-700 cursor-not-allowed' :
-                                isAvailable ? 'bg-green-100 text-green-700 hover:bg-green-200 cursor-pointer' :
-                                'bg-gray-50 cursor-not-allowed'}
+                                  isAvailable ? 'bg-green-100 text-green-700 hover:bg-green-200 cursor-pointer' :
+                                    'bg-gray-50 cursor-not-allowed'}
                             `}
                             style={{ borderRadius: 0 }}
                             onClick={() => isAvailable && !isPast && handleOpenModal(day, slot)}
@@ -522,9 +522,9 @@ function ConsultantDetailPage() {
           style={{ animation: 'fadeInDown 0.3s' }}
         >
           {notification.type === 'success' ? (
-            <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#22c55e" opacity="0.15"/><path d="M7 13l3 3 7-7" stroke="#22c55e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#22c55e" opacity="0.15" /><path d="M7 13l3 3 7-7" stroke="#22c55e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
           ) : (
-            <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#ef4444" opacity="0.15"/><path d="M15 9l-6 6M9 9l6 6" stroke="#ef4444" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#ef4444" opacity="0.15" /><path d="M15 9l-6 6M9 9l6 6" stroke="#ef4444" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
           )}
           <span className="flex-1 font-medium text-base">{notification.message}</span>
           <button

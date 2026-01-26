@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { getAllBlogsApi } from '../api';
 import MainLayout from '../components/layout/MainLayout';
 import CreateBlogForm from '../components/blog/CreateBlogForm';
 import toast, { Toaster } from 'react-hot-toast';
-import { FaBookOpen, FaSearch, FaFeatherAlt, FaRegLightbulb } from 'react-icons/fa';
+import { FaSearch } from 'react-icons/fa';
 
 interface Blog {
   _id: string;
@@ -42,7 +42,7 @@ function BlogPage() {
   useEffect(() => {
     const storedUserInfo = localStorage.getItem('userInfo');
     const token = localStorage.getItem('token');
-    
+
     if (storedUserInfo && token) {
       setUserInfo(JSON.parse(storedUserInfo));
       setIsLoggedIn(true);
@@ -84,7 +84,7 @@ function BlogPage() {
         },
         icon: '🔒',
       });
-      
+
       // Redirect to login page after 2 seconds
       setTimeout(() => {
         navigate('/login', { state: { returnUrl: '/blogs' } });
@@ -103,15 +103,14 @@ function BlogPage() {
   });
 
   // Get current blogs for pagination
-  const indexOfLastBlog = currentPage * blogsPerPage;
   const indexOfFirstBlog = currentPage === 1 ? 1 : (currentPage - 1) * blogsPerPage + 1;
-  
+
   // Separate the newest blog
   const newestBlog = filteredBlogs.length > 0 ? filteredBlogs[0] : null;
-  
+
   // Get the rest of the blogs for the grid (excluding the newest one if on first page)
-  const currentBlogs = currentPage === 1 
-    ? filteredBlogs.slice(1, 1 + blogsPerPage) 
+  const currentBlogs = currentPage === 1
+    ? filteredBlogs.slice(1, 1 + blogsPerPage)
     : filteredBlogs.slice(indexOfFirstBlog, indexOfFirstBlog + blogsPerPage);
 
   // Change page
@@ -119,10 +118,10 @@ function BlogPage() {
 
   // Format date
   const formatDate = (dateString: string) => {
-    const options: Intl.DateTimeFormatOptions = { 
-      year: 'numeric', 
-      month: 'long', 
-      day: 'numeric' 
+    const options: Intl.DateTimeFormatOptions = {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
     };
     return new Date(dateString).toLocaleDateString('vi-VN', options);
   };
@@ -132,8 +131,8 @@ function BlogPage() {
     // Chuyển đổi line breaks thành spaces để hiển thị preview
     const normalizedContent = content.replace(/\n/g, ' ').replace(/\r/g, ' ');
     const strippedContent = normalizedContent.replace(/<[^>]*>?/gm, ''); // Remove HTML tags
-    return strippedContent.length > maxLength 
-      ? strippedContent.substring(0, maxLength) + '...' 
+    return strippedContent.length > maxLength
+      ? strippedContent.substring(0, maxLength) + '...'
       : strippedContent;
   };
 
@@ -155,12 +154,11 @@ function BlogPage() {
   return (
     <MainLayout>
       <Toaster position="top-center" />
-      
-      {/* Philosophy Blog Banner */}
-      <div className="bg-light pt-4 pb-8 text-center border-b border-primary-200">
-        <h1 className="text-5xl md:text-6xl font-extrabold text-primary mb-4 tracking-tight">Blog Triết học</h1>
-        <p className="text-lg md:text-xl text-bodytext font-medium max-w-2xl mx-auto">
-          Khám phá những bài viết sâu sắc về triết học, tư duy và ý nghĩa cuộc sống.
+
+      <div className="bg-light pt-4 pb-8 text-center border-b border-red-200">
+        <h1 className="text-5xl md:text-6xl font-extrabold text-red-950 mb-4 tracking-tight" style={{ fontFamily: "'Playfair Display', serif" }}>Blog Tạp chí Hùng</h1>
+        <p className="text-lg md:text-xl text-red-800 font-medium max-w-2xl mx-auto">
+          Khám phá những bài viết sâu sắc về Tư tưởng Hồ Chí Minh và sức mạnh đại đoàn kết.
         </p>
       </div>
 
@@ -170,11 +168,10 @@ function BlogPage() {
           <div className="mb-8 flex justify-center">
             <button
               onClick={handleCreateBlogClick}
-              className={`${
-                isLoggedIn 
-                  ? 'bg-gradient-to-r from-primary to-accent hover:from-primary-700 hover:to-accent-700' 
-                  : 'bg-gradient-to-r from-secondary-400 to-secondary-500 hover:from-secondary-500 hover:to-secondary-600'
-              } px-6 py-3 rounded-xl shadow-lg transition-all duration-300 flex items-center font-semibold text-lg text-light drop-shadow`}
+              className={`${isLoggedIn
+                ? 'bg-gradient-to-r from-primary to-accent hover:from-primary-700 hover:to-accent-700'
+                : 'bg-gradient-to-r from-secondary-400 to-secondary-500 hover:from-secondary-500 hover:to-secondary-600'
+                } px-6 py-3 rounded-xl shadow-lg transition-all duration-300 flex items-center font-semibold text-lg text-light drop-shadow`}
             >
               <svg className="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 {isLoggedIn ? (
@@ -191,8 +188,8 @@ function BlogPage() {
         {/* Create blog form */}
         {showCreateForm ? (
           <div className="mb-10">
-            <CreateBlogForm 
-              onSuccess={() => setShowCreateForm(false)} 
+            <CreateBlogForm
+              onSuccess={() => setShowCreateForm(false)}
               onCancel={() => setShowCreateForm(false)}
             />
           </div>
@@ -217,7 +214,7 @@ function BlogPage() {
                 </div>
               </div>
             </div>
-            
+
             {/* Featured Newest Blog */}
             {currentPage === 1 && newestBlog && (
               <div className="mb-12">
@@ -230,7 +227,7 @@ function BlogPage() {
                 >
                   <div className="md:w-1/2 h-64 md:h-auto overflow-hidden relative">
                     {newestBlog.image ? (
-                      <img 
+                      <img
                         src={newestBlog.image}
                         alt={newestBlog.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
@@ -247,7 +244,7 @@ function BlogPage() {
                     )}
                     <div className="absolute inset-0 bg-gradient-to-t from-blue-900/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>
-                  
+
                   <div className="md:w-1/2 p-8 bg-gradient-to-br from-white to-blue-50">
                     <div className="flex items-center mb-4">
                       <span className="text-sm text-blue-500 bg-blue-50 px-3 py-1 rounded-full">{formatDate(newestBlog.createdAt)}</span>
@@ -256,7 +253,7 @@ function BlogPage() {
                     </div>
                     <h3 className="text-2xl md:text-3xl font-bold mb-4 text-blue-900 group-hover:text-cyan-700 transition-colors">{newestBlog.title}</h3>
                     <p className="text-blue-700 mb-6 text-base">{truncateContent(newestBlog.content, 300)}</p>
-                    
+
                     {/* Topics */}
                     {newestBlog.topics && newestBlog.topics.length > 0 && (
                       <div className="flex flex-wrap gap-2 mb-6">
@@ -267,7 +264,7 @@ function BlogPage() {
                         ))}
                       </div>
                     )}
-                    
+
                     <div className="flex justify-end mt-auto pt-4 border-t border-blue-100">
                       <span className="text-blue-700 font-medium group-hover:text-blue-800 transition flex items-center text-base">
                         Đọc tiếp
@@ -291,7 +288,7 @@ function BlogPage() {
                 >
                   {blog.image ? (
                     <div className="h-56 overflow-hidden relative">
-                      <img 
+                      <img
                         src={blog.image}
                         alt={blog.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
@@ -346,7 +343,7 @@ function BlogPage() {
                   <button
                     onClick={() => paginate(Math.max(1, currentPage - 1))}
                     disabled={currentPage === 1}
-                    className={currentPage === 1 
+                    className={currentPage === 1
                       ? 'px-4 py-2 border-r border-cyan-100 flex items-center bg-blue-50 text-blue-300 cursor-not-allowed'
                       : 'px-4 py-2 border-r border-cyan-100 flex items-center text-blue-700 hover:bg-cyan-50 hover:text-cyan-700'
                     }
@@ -491,12 +488,12 @@ function BlogPage() {
                   <div className="flex flex-col sm:flex-row justify-center items-end gap-4">
                     {podium.map((author, idx) => (
                       author ? (
-                        <div key={idx} className={`flex-1 flex flex-col items-center justify-end ${podiumColors[idx]} rounded-xl px-4 pt-4 pb-2 relative min-w-[100px] max-w-[180px] ${idx === 1 ? 'z-10 scale-110 shadow-xl' : 'opacity-90'} transition-all`} style={{height: idx === 1 ? 180 : 140}}>
+                        <div key={idx} className={`flex-1 flex flex-col items-center justify-end ${podiumColors[idx]} rounded-xl px-4 pt-4 pb-2 relative min-w-[100px] max-w-[180px] ${idx === 1 ? 'z-10 scale-110 shadow-xl' : 'opacity-90'} transition-all`} style={{ height: idx === 1 ? 180 : 140 }}>
                           <div className={`absolute -top-7 left-1/2 -translate-x-1/2 w-10 h-10 flex items-center justify-center rounded-full font-bold text-lg border-4 ${idx === 1 ? 'bg-yellow-400 border-yellow-300 text-yellow-900 shadow' : idx === 0 ? 'bg-gray-300 border-gray-200 text-gray-700' : 'bg-rose-300 border-rose-200 text-rose-700'}`}>#{podiumRanks[idx]}</div>
                           <div className="font-semibold text-base mt-6 text-center break-words">{author.name}</div>
                           <div className="text-xs font-medium mt-1 mb-2">{author.count} bài viết</div>
                           {idx === 1 && (
-                            <svg className="w-8 h-8 text-yellow-400 mb-1" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.09 6.26L20 9.27l-5 3.64L16.18 20 12 16.77 7.82 20 9 12.91l-5-3.64 5.91-.01z"/></svg>
+                            <svg className="w-8 h-8 text-yellow-400 mb-1" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.09 6.26L20 9.27l-5 3.64L16.18 20 12 16.77 7.82 20 9 12.91l-5-3.64 5.91-.01z" /></svg>
                           )}
                         </div>
                       ) : (
@@ -509,7 +506,7 @@ function BlogPage() {
             })()}
             {/* KẾT THÚC PHẦN MỚI */}
 
-            
+
           </>
         )}
       </div>

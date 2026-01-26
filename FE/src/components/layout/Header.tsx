@@ -46,7 +46,7 @@ function Header() {
   const avatarUrl =
     user?.photoUrl ||
     `https://i.pravatar.cc/150?img=${user?.username?.length || 3}`;
-    
+
   // Hàm kiểm tra đường dẫn hiện tại để xác định mục đang được chọn
   const isActive = (path: string) => {
     if (path === '/' && location.pathname === '/') {
@@ -54,7 +54,7 @@ function Header() {
     }
     return path !== '/' && location.pathname.startsWith(path);
   };
-  
+
   // Style cho mục đang được chọn
   const activeStyle = "text-gray-900 font-semibold";
   const defaultStyle = "text-gray-600 hover:text-gray-900";
@@ -70,8 +70,8 @@ function Header() {
                 alt="Logo"
                 className="h-10 w-10 object-cover rounded-full mr-2"
               />
-              <span className="ml-2 text-lg sm:text-xl font-semibold text-primary">
-                PhilosoSpace
+              <span className="ml-2 text-lg sm:text-xl font-semibold text-red-800">
+                Tạp chí Hùng
               </span>
             </Link>
           </div>
@@ -83,6 +83,9 @@ function Header() {
             </Link>
             <Link to="/blogs" className={isActive('/blogs') ? activeStyle : defaultStyle}>
               Blog
+            </Link>
+            <Link to="/magazine" className={isActive('/magazine') ? activeStyle : defaultStyle}>
+              Tạp chí
             </Link>
             <Link to="/about-us" className={isActive('/about-us') ? activeStyle : defaultStyle}>
               About Us
@@ -192,6 +195,13 @@ function Header() {
               onClick={() => setShowMobileMenu(false)}
             >
               Blog
+            </Link>
+            <Link
+              to="/magazine"
+              className={`block px-3 py-2 text-base font-medium rounded-md ${isActive('/magazine') ? 'bg-gray-100 text-gray-900' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'}`}
+              onClick={() => setShowMobileMenu(false)}
+            >
+              Tạp chí
             </Link>
             <Link
               to="/about-us"

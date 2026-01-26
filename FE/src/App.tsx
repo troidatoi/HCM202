@@ -58,6 +58,7 @@ const EventDetailPage = lazy(() => import("./pages/EventDetailPage"));
 const VerifyOTP = lazy(() => import("./pages/VerifyOTP"));
 const AdminProfile = lazy(() => import("./pages/admin/AdminProfile"));
 const TransactionManagement = lazy(() => import("./pages/admin/TransactionManagement"));
+const MagazinePage = lazy(() => import("./pages/Magazine/MagazinePage"));
 
 // Loading component
 const LoadingSpinner = () => (
@@ -146,6 +147,7 @@ function AppContent() {
           <Route path="/service" element={<ServicePage />} />
           <Route path="/events/:id" element={<EventDetailPage />} />
           <Route path="/verify-otp" element={<VerifyOTP />} />
+          <Route path="/magazine" element={<MagazinePage />} />
 
           {/* Protected Routes */}
           <Route
