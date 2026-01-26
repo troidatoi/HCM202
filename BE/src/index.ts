@@ -36,7 +36,7 @@ const PORT = process.env.PORT || 5000;
 
 const allowedOrigins = [
   "https://mln111-1.onrender.com",
-  "https://mln-111-bajz.vercel.app",
+  "https://hcm202-group5.vercel.app",
   "http://localhost:5173",
   "http://localhost:3000",
 ];

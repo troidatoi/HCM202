@@ -417,7 +417,7 @@ const MagazinePage: React.FC = () => {
                 {/* Right Section: Controls Sidebar */}
                 <div className="w-full lg:w-80 flex flex-col items-center justify-center gap-8 bg-white/40 backdrop-blur-md p-8 rounded-3xl border border-white shadow-xl">
                     <div className="text-center">
-                        <h2 className="text-3xl font-serif text-red-900 font-bold mb-1">Tạp Chí Hùng</h2>
+                        <h2 className="text-3xl font-serif text-red-900 font-bold mb-1">HCM202_Group 5</h2>
                         <p className="text-stone-500 uppercase tracking-widest text-xs">Phát hành 2026</p>
                     </div>
 

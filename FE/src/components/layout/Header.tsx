@@ -3,7 +3,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
-import logo from "/avarta.png";
 
 function Header() {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -43,9 +42,6 @@ function Header() {
     navigate("/");
   };
 
-  const avatarUrl =
-    user?.photoUrl ||
-    `https://i.pravatar.cc/150?img=${user?.username?.length || 3}`;
 
   // Hàm kiểm tra đường dẫn hiện tại để xác định mục đang được chọn
   const isActive = (path: string) => {
@@ -65,13 +61,8 @@ function Header() {
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
-              <img
-                src={logo}
-                alt="Logo"
-                className="h-10 w-10 object-cover rounded-full mr-2"
-              />
-              <span className="ml-2 text-lg sm:text-xl font-semibold text-red-800">
-                Tạp chí Hùng
+              <span className="text-lg sm:text-xl font-semibold text-red-800">
+                HCM202_Group 5
               </span>
             </Link>
           </div>
@@ -114,11 +105,7 @@ function Header() {
                 className="flex items-center gap-1 p-2.5 rounded-full bg-white hover:bg-gray-50 transition focus:outline-none"
                 onClick={() => setShowDropdown((v) => !v)}
               >
-                <img
-                  src={avatarUrl}
-                  alt="avatar"
-                  className="w-11 h-11 rounded-full object-cover"
-                />
+                <span className="font-medium text-gray-700">{user.fullName || user.username}</span>
                 <svg
                   className="w-4 h-4 text-gray-500"
                   fill="none"
