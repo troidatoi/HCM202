@@ -45,11 +45,22 @@ const allowedOrigins = [
 app.use(
   cors({
     origin: (origin, callback) => {
+      // Log origin để debug trên Render console
+      console.log("📥 Incoming Origin:", origin);
+
       // Cho phép các yêu cầu không có origin (như mobile apps hoặc curl)
       if (!origin) return callback(null, true);
-      if (allowedOrigins.indexOf(origin) !== -1) {
+
+      // Kiểm tra trong danh sách allowedOrigins
+      // Dùng regex hoặc includes giúp linh hoạt hơn với trailing slashes
+      const isAllowed = allowedOrigins.some(allowed =>
+        origin === allowed || origin === `${allowed}/`
+      );
+
+      if (isAllowed) {
         callback(null, true);
       } else {
+        console.warn("🚫 Origin blocked by CORS:", origin);
         callback(new Error("Not allowed by CORS"));
       }
     },
@@ -86,6 +97,23 @@ app.use("/api/event-feedback", eventFeedbackRoutes);
 // Route kiểm tra
 app.get("/", (_req, res) => {
   res.send(" HopeHub backend is running");
+});
+
+// Global Error Handler
+app.use((err: any, _req: express.Request, res: express.Response, _next: express.NextFunction) => {
+  console.error("🔥 Global Error Handler caught:", err);
+
+  // Đảm bảo vẫn trả về CORS header nếu có origin
+  const origin = _req.headers.origin;
+  if (origin) {
+    res.setHeader("Access-Control-Allow-Origin", origin as string);
+    res.setHeader("Access-Control-Allow-Credentials", "true");
+  }
+
+  res.status(err.status || 500).json({
+    message: err.message || "Internal Server Error",
+    stack: process.env.NODE_ENV === "development" ? err.stack : undefined,
+  });
 });
 
 // Start server
