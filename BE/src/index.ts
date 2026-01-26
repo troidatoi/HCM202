@@ -39,6 +39,8 @@ const allowedOrigins = [
   "https://hcm202-group5.vercel.app",
   "http://localhost:5173",
   "http://localhost:3000",
+  // Thêm các origins từ biến môi trường (phân tách bằng dấu phẩy)
+  ...(process.env.ALLOWED_ORIGINS ? process.env.ALLOWED_ORIGINS.split(",") : []),
 ];
 
 // Middleware
