@@ -643,7 +643,7 @@ export default function Home() {
                 onClick={() => navigate("/magazine")}
                 className="w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-4 bg-red-800 text-white rounded-full text-base sm:text-lg font-medium hover:bg-red-900 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
-                📕 Xem Tạp chí Hùng
+                📕 Xem Tạp chí
               </button>
             </div>
             <div className="flex gap-2">

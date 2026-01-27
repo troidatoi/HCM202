@@ -78,7 +78,7 @@ const AIChatBox: React.FC = () => {
                                     <span className="text-xl">🤖</span>
                                 </div>
                                 <div>
-                                    <h3 className="font-bold text-sm">Trợ lý HopeHub</h3>
+                                    <h3 className="font-bold text-sm">Trợ lý AI</h3>
                                     <p className="text-xs opacity-80">Đang trực tuyến</p>
                                 </div>
                             </div>
@@ -99,14 +99,14 @@ const AIChatBox: React.FC = () => {
                                 <div className="text-center py-10">
                                     <span className="text-4xl block mb-2">👋</span>
                                     <p className="text-amber-800 font-medium">Xin chào! Tôi có thể giúp gì cho bạn?</p>
-                                    <p className="text-xs text-amber-600 mt-1">Hỏi tôi bất cứ điều gì về HopeHub nhé.</p>
+                                    <p className="text-xs text-amber-600 mt-1">Hỏi tôi bất cứ điều gì nhé.</p>
                                 </div>
                             )}
                             {messages.map((m, i) => (
                                 <div key={i} className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}>
                                     <div className={`max-w-[80%] p-3 rounded-2xl text-sm ${m.role === "user"
-                                            ? "bg-amber-600 text-white rounded-tr-none"
-                                            : "bg-white text-amber-900 shadow-sm border border-amber-100 rounded-tl-none"
+                                        ? "bg-amber-600 text-white rounded-tr-none"
+                                        : "bg-white text-amber-900 shadow-sm border border-amber-100 rounded-tl-none"
                                         }`}>
                                         {m.parts[0].text}
                                     </div>
@@ -168,7 +168,7 @@ const AIChatBox: React.FC = () => {
                     </div>
                 )}
                 <div className="absolute right-full mr-4 bg-amber-900 text-white text-xs py-1 px-3 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-                    Hỏi AI HopeHub nhé!
+                    Hỏi AI nhé!
                 </div>
             </motion.button>
         </div>
