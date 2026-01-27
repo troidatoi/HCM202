@@ -59,6 +59,7 @@ const VerifyOTP = lazy(() => import("./pages/VerifyOTP"));
 const AdminProfile = lazy(() => import("./pages/admin/AdminProfile"));
 const TransactionManagement = lazy(() => import("./pages/admin/TransactionManagement"));
 const MagazinePage = lazy(() => import("./pages/Magazine/MagazinePage"));
+import AIChatBox from "./components/chat/AIChatBox";
 
 // Loading component
 const LoadingSpinner = () => (
@@ -256,6 +257,7 @@ function AppContent() {
           /> */}
         </Routes>
       </Suspense>
+      <AIChatBox />
     </Router>
   );
 }

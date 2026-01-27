@@ -22,6 +22,7 @@ import reportRoutes from "./routes/reportRoutes";
 import questionRoutes from "./routes/questionRoutes";
 
 import uploadRouter from "./routes/upload";
+import aiRoutes from "./routes/aiRoutes";
 import {
   startEventStatusCron,
   updateEventStatus,
@@ -95,6 +96,7 @@ app.use("/api/reports", reportRoutes);
 app.use("/api/sponsors", sponsorRoutes);
 app.use("/api/questions", questionRoutes);
 app.use("/api/event-feedback", eventFeedbackRoutes);
+app.use("/api/ai", aiRoutes);
 
 // Route kiểm tra
 app.get("/", (_req, res) => {

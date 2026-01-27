@@ -6,6 +6,10 @@ import { useNavigate } from "react-router-dom";
 import { getAllBlogsApi } from "../api";
 import { motion } from "framer-motion";
 import bgHome from "../assets/background.png";
+import card1 from "../assets/card1.png";
+import card2 from "../assets/card2.png";
+import card3 from "../assets/card3.png";
+import card4 from "../assets/card4.png";
 
 // Triết lý và trích dẫn nổi tiếng
 // Tư tưởng Hồ Chí Minh và trích dẫn nổi tiếng
@@ -42,32 +46,28 @@ const marxistDialectics = {
       description: "Đại đoàn kết không phải là thủ đoạn chính trị nhất thời mà là đường lối chiến lược xuyên suốt cách mạng Việt Nam.",
       icon: "🤝",
       color: "from-red-600 to-red-800",
-      image: "",
-      imageNote: "Biểu tượng của sự gắn kết chặt chẽ giữa các tầng lớp nhân dân dưới sự lãnh đạo của Đảng"
+      image: card1
     },
     {
       title: "Đoàn kết là sức mạnh, là then chốt",
       description: "Đoàn kết tạo nên sức mạnh vô địch để chiến thắng mọi kẻ thù và xây dựng đất nước giàu mạnh.",
       icon: "💪",
       color: "from-yellow-500 to-red-600",
-      image: "",
-      imageNote: "Sức mạnh tổng lực của khối đại đoàn kết toàn dân tộc"
+      image: card2
     },
     {
       title: "Đại đoàn kết toàn dân tộc",
       description: "Tập hợp mọi người dân Việt Nam yêu nước, không phân biệt giai cấp, tôn giáo, dân tộc vào một khối thống nhất.",
       icon: "🇻🇳",
       color: "from-red-500 to-yellow-600",
-      image: "",
-      imageNote: "Hình ảnh ngôi sao vàng trên nền đỏ tượng trưng cho sự đoàn kết của 54 dân tộc anh em"
+      image: card3
     },
     {
       title: "Kết hợp sức mạnh dân tộc và quốc tế",
       description: "Đoàn kết dân tộc phải gắn liền với đoàn kết quốc tế, tranh thủ sự ủng hộ của nhân loại tiến bộ trên thế giới.",
       icon: "🌐",
       color: "from-blue-600 to-red-600",
-      image: "",
-      imageNote: "Mối quan hệ hữu nghị và hợp tác giữa Việt Nam với các quốc gia và cộng đồng quốc tế"
+      image: card4
     }
   ],
   examples: [
@@ -730,13 +730,6 @@ export default function Home() {
                   <p className="text-xs sm:text-sm md:text-base text-amber-700 leading-relaxed mb-4 flex-grow min-h-[80px]">
                     {principle.description}
                   </p>
-                  {principle.imageNote && (
-                    <div className="mt-auto p-2 sm:p-3 bg-amber-50/50 rounded-lg border-l-2 border-amber-300 mb-4">
-                      <p className="text-xs text-amber-600 italic leading-relaxed">
-                        💭 {principle.imageNote}
-                      </p>
-                    </div>
-                  )}
                   <div className="mt-auto text-center w-full">
                     <span className="inline-block w-full py-2 sm:py-3 bg-amber-100 text-amber-800 rounded-full text-xs sm:text-sm font-bold border-2 border-amber-200 transition group-hover:bg-amber-600 group-hover:text-white group-hover:border-amber-700">
                       Bấm để học và kiểm tra
@@ -801,246 +794,241 @@ export default function Home() {
       </motion.div>
 
       {/* Quiz Modal */}
-      {selectedPrinciple !== null && (
-        <motion.div
-          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          onClick={handleRestartQuiz}
-        >
+      {
+        selectedPrinciple !== null && (
           <motion.div
-            className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.9, opacity: 0 }}
-            onClick={(e) => e.stopPropagation()}
+            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={handleRestartQuiz}
           >
-            {!showResult ? (
-              // Quiz Content
-              <div className="p-8">
-                {/* Header */}
-                <div className="text-center mb-8">
-                  <h2 className="text-3xl font-bold text-amber-900 mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
-                    {principleQuizzes[selectedPrinciple].title}
-                  </h2>
-                  <div className="w-full bg-gray-200 rounded-full h-2 mb-4">
-                    <div
-                      className="bg-gradient-to-r from-amber-500 to-orange-500 h-2 rounded-full transition-all duration-300"
-                      style={{ width: `${((currentQuestion + 1) / principleQuizzes[selectedPrinciple].questions.length) * 100}%` }}
-                    ></div>
+            <motion.div
+              className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              {!showResult ? (
+                // Quiz Content
+                <div className="p-8">
+                  {/* Header */}
+                  <div className="text-center mb-8">
+                    <h2 className="text-3xl font-bold text-amber-900 mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                      {principleQuizzes[selectedPrinciple!].title}
+                    </h2>
+                    <div className="w-full bg-gray-200 rounded-full h-2 mb-4">
+                      <div
+                        className="bg-gradient-to-r from-amber-500 to-orange-500 h-2 rounded-full transition-all duration-300"
+                        style={{ width: `${((currentQuestion + 1) / principleQuizzes[selectedPrinciple!].questions.length) * 100}%` }}
+                      ></div>
+                    </div>
+                    <p className="text-amber-700">
+                      Câu hỏi {currentQuestion + 1} / {principleQuizzes[selectedPrinciple!].questions.length}
+                    </p>
                   </div>
-                  <p className="text-amber-700">
-                    Câu hỏi {currentQuestion + 1} / {principleQuizzes[selectedPrinciple].questions.length}
-                  </p>
-                </div>
 
-                {/* Detail Content */}
-                <div className="bg-gradient-to-r from-amber-50 to-orange-50 rounded-xl p-6 mb-8">
-                  <h3 className="text-xl font-bold text-amber-900 mb-4">Nội dung chi tiết:</h3>
+                  {/* Detail Content */}
+                  <div className="bg-gradient-to-r from-amber-50 to-orange-50 rounded-xl p-6 mb-8">
+                    <h3 className="text-xl font-bold text-amber-900 mb-4">Nội dung chi tiết:</h3>
 
-                  {/* Image and meaning for principles with images */}
-                  {marxistDialectics.principles[selectedPrinciple].image && (
-                    <div className="mb-6">
-                      <div className="relative h-64 sm:h-80 md:h-96 lg:h-[28rem] rounded-xl overflow-hidden mb-4">
-                        <img
-                          src={marxistDialectics.principles[selectedPrinciple].image}
-                          alt={marxistDialectics.principles[selectedPrinciple].title}
-                          className="w-full h-full object-contain bg-amber-50"
-                        />
-                        <div className="absolute inset-0 bg-black/20"></div>
-                        <div className="absolute bottom-4 left-4 right-4">
-                          <div className="bg-white/95 backdrop-blur-sm rounded-lg p-4 shadow-lg">
-                            <p className="text-sm text-amber-800 italic leading-relaxed">
-                              💭 {marxistDialectics.principles[selectedPrinciple].imageNote}
-                            </p>
-                          </div>
+                    {/* Image and meaning for principles with images */}
+                    {marxistDialectics.principles[selectedPrinciple!].image && (
+                      <div className="mb-6">
+                        <div className="relative h-64 sm:h-80 md:h-96 lg:h-[28rem] rounded-xl overflow-hidden mb-4">
+                          <img
+                            src={marxistDialectics.principles[selectedPrinciple!].image}
+                            alt={marxistDialectics.principles[selectedPrinciple!].title}
+                            className="w-full h-full object-contain bg-amber-50"
+                          />
+                          <div className="absolute inset-0 bg-black/20"></div>
                         </div>
                       </div>
-                    </div>
-                  )}
+                    )}
 
-                  <p className="text-amber-800 leading-relaxed mb-4">
-                    {principleQuizzes[selectedPrinciple].detail}
-                  </p>
+                    <p className="text-amber-800 leading-relaxed mb-4">
+                      {principleQuizzes[selectedPrinciple!].detail}
+                    </p>
 
-                  {/* Introduction */}
-                  {principleQuizzes[selectedPrinciple].detailedContent && (
-                    <div className="mb-6">
-                      <h4 className="text-lg font-bold text-amber-900 mb-3">Giới thiệu:</h4>
-                      <p className="text-amber-800 leading-relaxed mb-4">
-                        {principleQuizzes[selectedPrinciple].detailedContent.introduction}
-                      </p>
+                    {/* Introduction */}
+                    {principleQuizzes[selectedPrinciple!].detailedContent && (
+                      <div className="mb-6">
+                        <h4 className="text-lg font-bold text-amber-900 mb-3">Giới thiệu:</h4>
+                        <p className="text-amber-800 leading-relaxed mb-4">
+                          {principleQuizzes[selectedPrinciple!].detailedContent.introduction}
+                        </p>
 
-                      {/* Characteristics */}
-                      <h4 className="text-lg font-bold text-amber-900 mb-3">Đặc điểm chính:</h4>
-                      <ul className="space-y-2 mb-4">
-                        {principleQuizzes[selectedPrinciple].detailedContent.characteristics.map((char, index) => (
-                          <li key={index} className="flex items-start space-x-2">
-                            <span className="text-amber-600 mt-1">•</span>
-                            <span className="text-amber-800 text-sm leading-relaxed">{char}</span>
-                          </li>
+                        {/* Characteristics */}
+                        <h4 className="text-lg font-bold text-amber-900 mb-3">Đặc điểm chính:</h4>
+                        <ul className="space-y-2 mb-4">
+                          {principleQuizzes[selectedPrinciple!].detailedContent.characteristics.map((char, index) => (
+                            <li key={index} className="flex items-start space-x-2">
+                              <span className="text-amber-600 mt-1">•</span>
+                              <span className="text-amber-800 text-sm leading-relaxed">{char}</span>
+                            </li>
+                          ))}
+                        </ul>
+
+                        {/* Mechanism */}
+                        <h4 className="text-lg font-bold text-amber-900 mb-3">Cơ chế hoạt động:</h4>
+                        <p className="text-amber-800 leading-relaxed">
+                          {principleQuizzes[selectedPrinciple!].detailedContent.mechanism}
+                        </p>
+                      </div>
+                    )}
+
+                    {/* Examples */}
+                    <div className="mt-6">
+                      <h4 className="text-lg font-bold text-amber-900 mb-3">Ví dụ minh họa:</h4>
+                      <div className="space-y-4">
+                        {principleQuizzes[selectedPrinciple!].examples.map((example, index) => (
+                          <div key={index} className="bg-white bg-opacity-50 rounded-lg p-4 border-l-4 border-amber-400">
+                            <div className="flex items-start space-x-3">
+                              <span className="text-2xl">{example.visual}</span>
+                              <div className="flex-1">
+                                <h5 className="font-bold text-amber-900 mb-2">{example.title}</h5>
+                                <p className="text-amber-800 text-sm leading-relaxed">
+                                  {example.content}
+                                </p>
+                              </div>
+                            </div>
+                          </div>
                         ))}
-                      </ul>
-
-                      {/* Mechanism */}
-                      <h4 className="text-lg font-bold text-amber-900 mb-3">Cơ chế hoạt động:</h4>
-                      <p className="text-amber-800 leading-relaxed">
-                        {principleQuizzes[selectedPrinciple].detailedContent.mechanism}
-                      </p>
+                      </div>
                     </div>
-                  )}
+                  </div>
 
-                  {/* Examples */}
-                  <div className="mt-6">
-                    <h4 className="text-lg font-bold text-amber-900 mb-3">Ví dụ minh họa:</h4>
+                  {/* Question */}
+                  <div className="mb-8">
+                    <h3 className="text-2xl font-bold text-amber-900 mb-6">
+                      {principleQuizzes[selectedPrinciple!].questions[currentQuestion].question}
+                    </h3>
+
+                    {/* Options */}
                     <div className="space-y-4">
-                      {principleQuizzes[selectedPrinciple].examples.map((example, index) => (
-                        <div key={index} className="bg-white bg-opacity-50 rounded-lg p-4 border-l-4 border-amber-400">
-                          <div className="flex items-start space-x-3">
-                            <span className="text-2xl">{example.visual}</span>
+                      {principleQuizzes[selectedPrinciple!].questions[currentQuestion].options.map((option, index) => (
+                        <motion.button
+                          key={index}
+                          className={`w-full p-4 text-left rounded-xl border-2 transition-all duration-200 ${selectedAnswer === index
+                            ? 'border-amber-500 bg-amber-50 text-amber-900'
+                            : 'border-gray-200 hover:border-amber-300 hover:bg-amber-25'
+                            }`}
+                          onClick={() => handleAnswerSelect(index)}
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                        >
+                          <span className="font-medium">{String.fromCharCode(65 + index)}. </span>
+                          {option}
+                        </motion.button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Navigation */}
+                  <div className="flex justify-end">
+                    <button
+                      onClick={handleNextQuestion}
+                      disabled={selectedAnswer === null}
+                      className={`px-8 py-3 rounded-lg font-medium transition-all ${selectedAnswer !== null
+                        ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white hover:from-amber-600 hover:to-orange-600'
+                        : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                        }`}
+                    >
+                      {currentQuestion < principleQuizzes[selectedPrinciple!].questions.length - 1 ? 'Câu tiếp theo' : 'Xem kết quả'}
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                // Result Content
+                <div className="p-8">
+                  {/* Header Result */}
+                  <div className="text-center mb-8">
+                    <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 flex items-center justify-center">
+                      <span className="text-4xl text-white">
+                        {score === principleQuizzes[selectedPrinciple!].questions.length ? '🏆' :
+                          score >= principleQuizzes[selectedPrinciple!].questions.length / 2 ? '🎉' : '📚'}
+                      </span>
+                    </div>
+                    <h2 className="text-3xl font-bold text-amber-900 mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                      Kết quả kiểm tra
+                    </h2>
+                    <div className="text-6xl font-bold text-amber-600 mb-4">
+                      {score}/{principleQuizzes[selectedPrinciple!].questions.length}
+                    </div>
+                    <p className="text-xl text-amber-700 mb-2">
+                      {score === principleQuizzes[selectedPrinciple!].questions.length ? 'Xuất sắc! Bạn đã hiểu rõ nguyên lý này!' :
+                        score >= principleQuizzes[selectedPrinciple!].questions.length / 2 ? 'Tốt! Hãy ôn tập thêm để hiểu sâu hơn.' :
+                          'Hãy đọc lại nội dung và thử lại nhé!'}
+                    </p>
+                    <p className="text-amber-600">
+                      Tỷ lệ đúng: {Math.round((score / principleQuizzes[selectedPrinciple!].questions.length) * 100)}%
+                    </p>
+                  </div>
+
+                  {/* Review Questions */}
+                  <div className="mb-8">
+                    <h3 className="text-2xl font-bold text-amber-900 mb-6 text-center">Đáp án chi tiết</h3>
+                    <div className="space-y-6">
+                      {principleQuizzes[selectedPrinciple!].questions.map((question, index) => (
+                        <div key={index} className="bg-gray-50 rounded-xl p-6">
+                          <div className="flex items-start space-x-3 mb-4">
+                            <span className="flex-shrink-0 w-8 h-8 bg-amber-500 text-white rounded-full flex items-center justify-center font-bold text-sm">
+                              {index + 1}
+                            </span>
                             <div className="flex-1">
-                              <h5 className="font-bold text-amber-900 mb-2">{example.title}</h5>
-                              <p className="text-amber-800 text-sm leading-relaxed">
-                                {example.content}
-                              </p>
+                              <h4 className="text-lg font-semibold text-amber-900 mb-3">
+                                {question.question}
+                              </h4>
+                              <div className="space-y-2">
+                                {question.options.map((option, optionIndex) => (
+                                  <div
+                                    key={optionIndex}
+                                    className={`p-3 rounded-lg border-2 ${optionIndex === question.correct
+                                      ? 'border-green-500 bg-green-50 text-green-800'
+                                      : optionIndex === userAnswers[index]
+                                        ? 'border-red-500 bg-red-50 text-red-800'
+                                        : 'border-gray-200 bg-white text-gray-700'
+                                      }`}
+                                  >
+                                    <span className="font-medium">{String.fromCharCode(65 + optionIndex)}. </span>
+                                    {option}
+                                    {optionIndex === question.correct && (
+                                      <span className="ml-2 text-green-600 font-bold">✓ Đúng</span>
+                                    )}
+                                    {optionIndex === userAnswers[index] && optionIndex !== question.correct && (
+                                      <span className="ml-2 text-red-600 font-bold">✗ Sai</span>
+                                    )}
+                                  </div>
+                                ))}
+                              </div>
+                              <div className="mt-4 p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                                <p className="text-blue-800">
+                                  <span className="font-semibold">Giải thích:</span> {question.explanation}
+                                </p>
+                              </div>
                             </div>
                           </div>
                         </div>
                       ))}
                     </div>
                   </div>
-                </div>
 
-                {/* Question */}
-                <div className="mb-8">
-                  <h3 className="text-2xl font-bold text-amber-900 mb-6">
-                    {principleQuizzes[selectedPrinciple].questions[currentQuestion].question}
-                  </h3>
-
-                  {/* Options */}
-                  <div className="space-y-4">
-                    {principleQuizzes[selectedPrinciple].questions[currentQuestion].options.map((option, index) => (
-                      <motion.button
-                        key={index}
-                        className={`w-full p-4 text-left rounded-xl border-2 transition-all duration-200 ${selectedAnswer === index
-                          ? 'border-amber-500 bg-amber-50 text-amber-900'
-                          : 'border-gray-200 hover:border-amber-300 hover:bg-amber-25'
-                          }`}
-                        onClick={() => handleAnswerSelect(index)}
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                      >
-                        <span className="font-medium">{String.fromCharCode(65 + index)}. </span>
-                        {option}
-                      </motion.button>
-                    ))}
+                  {/* Action Buttons */}
+                  <div className="flex justify-center">
+                    <button
+                      onClick={handleRestartQuiz}
+                      className="px-8 py-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-lg hover:from-amber-600 hover:to-orange-600 transition-all font-medium"
+                    >
+                      Thử lại
+                    </button>
                   </div>
                 </div>
-
-                {/* Navigation */}
-                <div className="flex justify-end">
-                  <button
-                    onClick={handleNextQuestion}
-                    disabled={selectedAnswer === null}
-                    className={`px-8 py-3 rounded-lg font-medium transition-all ${selectedAnswer !== null
-                      ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white hover:from-amber-600 hover:to-orange-600'
-                      : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                      }`}
-                  >
-                    {currentQuestion < principleQuizzes[selectedPrinciple].questions.length - 1 ? 'Câu tiếp theo' : 'Xem kết quả'}
-                  </button>
-                </div>
-              </div>
-            ) : (
-              // Result Content
-              <div className="p-8">
-                {/* Header Result */}
-                <div className="text-center mb-8">
-                  <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 flex items-center justify-center">
-                    <span className="text-4xl text-white">
-                      {score === principleQuizzes[selectedPrinciple].questions.length ? '🏆' :
-                        score >= principleQuizzes[selectedPrinciple].questions.length / 2 ? '🎉' : '📚'}
-                    </span>
-                  </div>
-                  <h2 className="text-3xl font-bold text-amber-900 mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
-                    Kết quả kiểm tra
-                  </h2>
-                  <div className="text-6xl font-bold text-amber-600 mb-4">
-                    {score}/{principleQuizzes[selectedPrinciple].questions.length}
-                  </div>
-                  <p className="text-xl text-amber-700 mb-2">
-                    {score === principleQuizzes[selectedPrinciple].questions.length ? 'Xuất sắc! Bạn đã hiểu rõ nguyên lý này!' :
-                      score >= principleQuizzes[selectedPrinciple].questions.length / 2 ? 'Tốt! Hãy ôn tập thêm để hiểu sâu hơn.' :
-                        'Hãy đọc lại nội dung và thử lại nhé!'}
-                  </p>
-                  <p className="text-amber-600">
-                    Tỷ lệ đúng: {Math.round((score / principleQuizzes[selectedPrinciple].questions.length) * 100)}%
-                  </p>
-                </div>
-
-                {/* Review Questions */}
-                <div className="mb-8">
-                  <h3 className="text-2xl font-bold text-amber-900 mb-6 text-center">Đáp án chi tiết</h3>
-                  <div className="space-y-6">
-                    {principleQuizzes[selectedPrinciple].questions.map((question, index) => (
-                      <div key={index} className="bg-gray-50 rounded-xl p-6">
-                        <div className="flex items-start space-x-3 mb-4">
-                          <span className="flex-shrink-0 w-8 h-8 bg-amber-500 text-white rounded-full flex items-center justify-center font-bold text-sm">
-                            {index + 1}
-                          </span>
-                          <div className="flex-1">
-                            <h4 className="text-lg font-semibold text-amber-900 mb-3">
-                              {question.question}
-                            </h4>
-                            <div className="space-y-2">
-                              {question.options.map((option, optionIndex) => (
-                                <div
-                                  key={optionIndex}
-                                  className={`p-3 rounded-lg border-2 ${optionIndex === question.correct
-                                    ? 'border-green-500 bg-green-50 text-green-800'
-                                    : optionIndex === userAnswers[index]
-                                      ? 'border-red-500 bg-red-50 text-red-800'
-                                      : 'border-gray-200 bg-white text-gray-700'
-                                    }`}
-                                >
-                                  <span className="font-medium">{String.fromCharCode(65 + optionIndex)}. </span>
-                                  {option}
-                                  {optionIndex === question.correct && (
-                                    <span className="ml-2 text-green-600 font-bold">✓ Đúng</span>
-                                  )}
-                                  {optionIndex === userAnswers[index] && optionIndex !== question.correct && (
-                                    <span className="ml-2 text-red-600 font-bold">✗ Sai</span>
-                                  )}
-                                </div>
-                              ))}
-                            </div>
-                            <div className="mt-4 p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
-                              <p className="text-blue-800">
-                                <span className="font-semibold">Giải thích:</span> {question.explanation}
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Action Buttons */}
-                <div className="flex justify-center">
-                  <button
-                    onClick={handleRestartQuiz}
-                    className="px-8 py-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-lg hover:from-amber-600 hover:to-orange-600 transition-all font-medium"
-                  >
-                    Thử lại
-                  </button>
-                </div>
-              </div>
-            )}
+              )}
+            </motion.div>
           </motion.div>
-        </motion.div>
-      )}
+        )
+      }
 
       {/* Philosophy Blog Section */}
       <motion.div
@@ -1168,9 +1156,11 @@ export default function Home() {
       <Footer />
 
       {/* Memory Game Modal */}
-      {showMemoryGame && (
-        <MemoryGame onClose={() => setShowMemoryGame(false)} />
-      )}
+      {
+        showMemoryGame && (
+          <MemoryGame onClose={() => setShowMemoryGame(false)} />
+        )
+      }
     </div>
   );
 }

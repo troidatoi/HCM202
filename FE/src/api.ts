@@ -11,9 +11,10 @@ export interface BlogData {
 }
 
 // API URLs - with fallback
+const isDev = import.meta.env.DEV || window.location.hostname === "localhost";
 const API_URLS = [
-  import.meta.env.VITE_API_URL || "https://mln111-1.onrender.com/api",
-  "http://localhost:5000/api", // Local development fallback
+  isDev ? (import.meta.env.VITE_API_URL_LOCAL || "http://localhost:5000/api") : (import.meta.env.VITE_API_URL || "https://mln111-1.onrender.com/api"),
+  !isDev ? (import.meta.env.VITE_API_URL_LOCAL || "http://localhost:5000/api") : (import.meta.env.VITE_API_URL || "https://mln111-1.onrender.com/api"),
 ];
 
 let currentApiIndex = 0;
@@ -1027,3 +1028,8 @@ export const getAllPaymentsApi = async () => {
 };
 
 export default api;
+// ===== AI CHAT API =====
+export const chatWithAIApi = async (message: string, history: any[] = []) => {
+  const res = await api.post("/ai/chat", { message, history });
+  return res.data;
+};
