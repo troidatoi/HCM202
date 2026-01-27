@@ -715,12 +715,10 @@ export default function Home() {
                         className="w-full h-full object-cover opacity-90"
                       />
                       <div className="absolute inset-0 bg-black/20"></div>
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="text-4xl sm:text-5xl md:text-6xl opacity-80 drop-shadow-lg">{principle.icon}</span>
-                      </div>
+
                     </>
                   ) : (
-                    <span className="text-4xl sm:text-5xl md:text-6xl opacity-80">{principle.icon}</span>
+                    <div className="w-full h-full"></div>
                   )}
                 </div>
                 <div className="p-3 sm:p-4 md:p-6 flex flex-col flex-1">

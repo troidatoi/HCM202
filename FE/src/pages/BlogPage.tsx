@@ -156,7 +156,7 @@ function BlogPage() {
       <Toaster position="top-center" />
 
       <div className="bg-light pt-4 pb-8 text-center border-b border-red-200">
-        <h1 className="text-5xl md:text-6xl font-extrabold text-red-950 mb-4 tracking-tight" style={{ fontFamily: "'Playfair Display', serif" }}>Blog Tạp chí Hùng</h1>
+        <h1 className="text-5xl md:text-6xl font-extrabold text-red-950 mb-4 tracking-tight" style={{ fontFamily: "'Playfair Display', serif" }}>Blog</h1>
         <p className="text-lg md:text-xl text-red-800 font-medium max-w-2xl mx-auto">
           Khám phá những bài viết sâu sắc về Tư tưởng Hồ Chí Minh và sức mạnh đại đoàn kết.
         </p>
