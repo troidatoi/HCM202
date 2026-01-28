@@ -15,25 +15,25 @@ const AboutUsPage: React.FC = () => {
       name: 'Phạm Lê Thắng Hùng',
       studentId: 'SE172380',
       role: 'Full-Stack Developer',
-      description: 'Phát triển toàn diện hệ thống Tạp chí số và Quizz Tư tưởng Hồ Chí Minh'
+      description: 'Developer'
     },
     {
       name: 'Nguyễn Thị Hồng Hạnh',
       studentId: 'SE181585',
       role: 'Full-Stack Developer',
-      description: 'Phát triển nội dung Chương 5.3 và hệ thống quản lý bài viết'
+      description: 'Developer, Content Creator'
     },
     {
-      name: 'Vũ Thị Yến Nhi',
-      studentId: 'SA180193',
+      name: 'Nguyễn Mạnh Cường ',
+      studentId: 'SE170070',
       role: 'Content Creator',
-      description: 'Tạo nội dung Infographic và truyền thông cho dự án'
+      description: 'Tạo nội dung tạp chí'
     },
     {
-      name: 'Võ Đức Thịnh',
-      studentId: 'SA170257',
-      role: 'Content Manager',
-      description: 'Quản lý và biên tập nội dung Tư tưởng Hồ Chí Minh chất lượng cao'
+      name: 'Lê Thị Ánh Hồng',
+      studentId: 'SE181508',
+      role: 'Content Creator',
+      description: 'Tạo nội dung tạp chí'
     }
   ];
 
@@ -43,6 +43,12 @@ const AboutUsPage: React.FC = () => {
       title: 'ChatGPT',
       description: 'Hỗ trợ nghiên cứu Tư tưởng Hồ Chí Minh và tạo nội dung tạp chí chất lượng cao',
       color: 'text-red-600'
+    },
+    {
+      icon: <FaRobot size={40} />,
+      title: 'Gemini Chat',
+      description: 'Trợ lý AI tích hợp sẵn trong website, hỗ trợ trả lời câu hỏi về Tư tưởng Hồ Chí Minh 24/7',
+      color: 'text-purple-600'
     },
     {
       icon: <FaCode size={40} />,
@@ -95,7 +101,7 @@ const AboutUsPage: React.FC = () => {
               >
                 <div className="absolute -top-4 -left-4 w-24 h-24 bg-gradient-to-r from-red-500/20 to-yellow-500/20 rounded-full blur-xl"></div>
                 <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-gradient-to-r from-yellow-500/20 to-red-500/20 rounded-full blur-xl"></div>
-                <h1 className="relative text-6xl md:text-8xl font-bold uppercase text-center bg-gradient-to-r from-red-700 via-red-800 to-red-900 bg-clip-text text-transparent animate-pulse" style={{ fontFamily: "'Playfair Display', serif" }}>
+                <h1 className="relative text-6xl md:text-8xl font-bold uppercase text-center bg-gradient-to-r from-red-700 via-red-800 to-red-900 bg-clip-text text-transparent animate-pulse font-serif">
                   About Us
                 </h1>
               </motion.div>
@@ -107,7 +113,7 @@ const AboutUsPage: React.FC = () => {
                 className="mt-6 font-serif"
               >
                 <p className="text-2xl md:text-3xl font-bold text-red-950 mb-4">
-                  Group1 - Dự án MLN111
+                  Group5- Hcm202
                 </p>
                 <p className="text-lg md:text-xl text-red-800 mb-6">
                   Trường Đại học FPT
@@ -288,7 +294,7 @@ const AboutUsPage: React.FC = () => {
               Các công cụ hỗ trợ xây dựng nền tảng Tạp chí số hiện đại
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {aiTools.map((tool, index) => (
               <motion.div
                 key={index}
@@ -324,13 +330,13 @@ const AboutUsPage: React.FC = () => {
           <div className="mt-24 p-10 bg-gradient-to-br from-red-900 to-red-950 text-white rounded-3xl border-2 border-yellow-500/50 shadow-2xl font-serif">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-yellow-500">Mục Tiêu Dự Án Chương 5.3</h2>
             <p className="text-lg md:text-xl mb-6 leading-relaxed">
-              Dự án MLN111 của <span className="text-yellow-400 font-bold">Group1</span> không chỉ dừng lại ở việc học tập lý thuyết, mà còn truyền tải tinh thần <span className="text-yellow-400 font-bold">“Đoàn kết là sức mạnh”</span> của Bác Hồ thông qua nền tảng số hóa. Chúng tôi mong muốn xây dựng một không gian học tập trực quan, sinh động, nơi mỗi sinh viên có thể dễ dàng tiếp thu và vận dụng tư tưởng đại đoàn kết trong cuộc sống và công việc tương lai.
+              Dự án HCM202 của <span className="text-yellow-400 font-bold">Group1</span> không chỉ dừng lại ở việc học tập lý thuyết, mà còn truyền tải tinh thần <span className="text-yellow-400 font-bold">“Đoàn kết là sức mạnh”</span> của Bác Hồ thông qua nền tảng số hóa. Chúng tôi mong muốn xây dựng một không gian học tập trực quan, sinh động, nơi mỗi sinh viên có thể dễ dàng tiếp thu và vận dụng tư tưởng đại đoàn kết trong cuộc sống và công việc tương lai.
             </p>
             <div className="flex items-center justify-center mt-8 pt-8 border-t border-white/20">
               <FaGraduationCap size={32} className="mr-4 text-yellow-500" />
               <div className="text-left">
                 <span className="text-xl font-bold block">Trường Đại học FPT</span>
-                <span className="text-yellow-500 italic">Môn Tư tưởng Hồ Chí Minh (MLN111)</span>
+                <span className="text-yellow-500 italic">Môn Tư tưởng Hồ Chí Minh (HCM202)</span>
               </div>
             </div>
           </div>
