@@ -59,7 +59,7 @@ function BlogDetailPage() {
         setBlog(blogData);
 
         // Set page title
-        document.title = `${blogData.title} | Tạp chí Hùng`;
+        document.title = `${blogData.title} | MLN131`;
 
         // Lấy bài viết liên quan theo tag
         if (blogData.topics && blogData.topics.length > 0) {

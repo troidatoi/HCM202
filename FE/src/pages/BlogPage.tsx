@@ -155,10 +155,10 @@ function BlogPage() {
     <MainLayout>
       <Toaster position="top-center" />
 
-      <div className="bg-light pt-4 pb-8 text-center border-b border-red-200">
-        <h1 className="text-5xl md:text-6xl font-extrabold text-red-950 mb-4 tracking-tight" style={{ fontFamily: "'Playfair Display', serif" }}>Blog</h1>
-        <p className="text-lg md:text-xl text-red-800 font-medium max-w-2xl mx-auto">
-          Khám phá những bài viết sâu sắc về Tư tưởng Hồ Chí Minh và sức mạnh đại đoàn kết.
+      <div className="bg-light pt-4 pb-8 text-center border-b border-amber-200">
+        <h1 className="text-5xl md:text-6xl font-extrabold text-amber-950 mb-4 tracking-tight" style={{ fontFamily: "'Playfair Display', serif" }}>Blog</h1>
+        <p className="text-lg md:text-xl text-amber-800 font-medium max-w-2xl mx-auto">
+          Khám phá những bài viết sâu sắc về Quyền con người trong XHCN và Dân chủ XHCN.
         </p>
       </div>
 
@@ -206,7 +206,7 @@ function BlogPage() {
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
                 <div className="absolute left-5 top-1/2 transform -translate-y-1/2">
-                  <FaSearch className="text-blue-400" />
+                  <FaSearch className="text-amber-400" />
                 </div>
                 <div className="absolute inset-y-0 right-0 flex items-center pr-6">
                   <div className="h-8 w-px bg-gray-200"></div>
@@ -218,12 +218,12 @@ function BlogPage() {
             {/* Featured Newest Blog */}
             {currentPage === 1 && newestBlog && (
               <div className="mb-12">
-                <h2 className="text-2xl font-bold text-blue-800 mb-6 border-l-4 border-blue-500 pl-4 bg-blue-50 py-2 rounded-r-lg shadow-sm">
+                <h2 className="text-2xl font-bold text-amber-800 mb-6 border-l-4 border-amber-500 pl-4 bg-amber-50 py-2 rounded-r-lg shadow-sm">
                   Bài viết mới nhất
                 </h2>
                 <Link
                   to={'/blogs/' + newestBlog._id}
-                  className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow overflow-hidden flex flex-col md:flex-row h-full group border border-blue-100"
+                  className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow overflow-hidden flex flex-col md:flex-row h-full group border border-amber-100"
                 >
                   <div className="md:w-1/2 h-64 md:h-auto overflow-hidden relative">
                     {newestBlog.image ? (
@@ -233,40 +233,40 @@ function BlogPage() {
                         className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
                       />
                     ) : (
-                      <div className="h-full bg-gradient-to-br from-blue-100 to-sky-100 flex items-center justify-center p-6 relative">
+                      <div className="h-full bg-gradient-to-br from-amber-100 to-amber-100 flex items-center justify-center p-6 relative">
                         <div className="text-center">
-                          <svg className="w-24 h-24 text-blue-300 mx-auto mb-2 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <svg className="w-24 h-24 text-amber-300 mx-auto mb-2 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                           </svg>
-                          <p className="text-sm font-medium text-blue-400 italic">Hình ảnh minh họa</p>
+                          <p className="text-sm font-medium text-amber-400 italic">Hình ảnh minh họa</p>
                         </div>
                       </div>
                     )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-blue-900/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-amber-900/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>
 
-                  <div className="md:w-1/2 p-8 bg-gradient-to-br from-white to-blue-50">
+                  <div className="md:w-1/2 p-8 bg-gradient-to-br from-white to-amber-50">
                     <div className="flex items-center mb-4">
-                      <span className="text-sm text-blue-500 bg-blue-50 px-3 py-1 rounded-full">{formatDate(newestBlog.createdAt)}</span>
-                      <span className="mx-2 text-blue-200">•</span>
-                      <span className="text-sm text-blue-700 font-medium">{newestBlog.anDanh ? 'Ẩn danh' : (newestBlog.authorId?.fullName || 'Không xác định')}</span>
+                      <span className="text-sm text-amber-500 bg-amber-50 px-3 py-1 rounded-full">{formatDate(newestBlog.createdAt)}</span>
+                      <span className="mx-2 text-amber-200">•</span>
+                      <span className="text-sm text-amber-700 font-medium">{newestBlog.anDanh ? 'Ẩn danh' : (newestBlog.authorId?.fullName || 'Không xác định')}</span>
                     </div>
-                    <h3 className="text-2xl md:text-3xl font-bold mb-4 text-blue-900 group-hover:text-cyan-700 transition-colors">{newestBlog.title}</h3>
-                    <p className="text-blue-700 mb-6 text-base">{truncateContent(newestBlog.content, 300)}</p>
+                    <h3 className="text-2xl md:text-3xl font-bold mb-4 text-amber-900 group-hover:text-amber-700 transition-colors">{newestBlog.title}</h3>
+                    <p className="text-amber-700 mb-6 text-base">{truncateContent(newestBlog.content, 300)}</p>
 
                     {/* Topics */}
                     {newestBlog.topics && newestBlog.topics.length > 0 && (
                       <div className="flex flex-wrap gap-2 mb-6">
                         {newestBlog.topics.map((topic, idx) => (
-                          <span key={idx} className="text-sm bg-blue-100 text-blue-700 px-3 py-1 rounded-full">
+                          <span key={idx} className="text-sm bg-amber-100 text-amber-700 px-3 py-1 rounded-full">
                             {topic}
                           </span>
                         ))}
                       </div>
                     )}
 
-                    <div className="flex justify-end mt-auto pt-4 border-t border-blue-100">
-                      <span className="text-blue-700 font-medium group-hover:text-blue-800 transition flex items-center text-base">
+                    <div className="flex justify-end mt-auto pt-4 border-t border-amber-100">
+                      <span className="text-amber-700 font-medium group-hover:text-amber-800 transition flex items-center text-base">
                         Đọc tiếp
                         <svg className="w-5 h-5 ml-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -284,7 +284,7 @@ function BlogPage() {
                 <Link
                   key={blog._id}
                   to={'/blogs/' + blog._id}
-                  className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden flex flex-col h-full group border border-blue-50"
+                  className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden flex flex-col h-full group border border-amber-50"
                 >
                   {blog.image ? (
                     <div className="h-56 overflow-hidden relative">
@@ -293,39 +293,39 @@ function BlogPage() {
                         alt={blog.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-blue-900/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-amber-900/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
                   ) : (
-                    <div className="h-56 bg-gradient-to-br from-blue-100 to-sky-100 flex items-center justify-center p-6 relative">
+                    <div className="h-56 bg-gradient-to-br from-amber-100 to-amber-100 flex items-center justify-center p-6 relative">
                       <div className="text-center">
-                        <svg className="w-16 h-16 text-blue-300 mx-auto mb-2 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg className="w-16 h-16 text-amber-300 mx-auto mb-2 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                         </svg>
-                        <p className="text-sm font-medium text-blue-400 italic">Hình ảnh minh họa</p>
+                        <p className="text-sm font-medium text-amber-400 italic">Hình ảnh minh họa</p>
                       </div>
-                      <div className="absolute inset-0 bg-gradient-to-t from-blue-200/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-amber-200/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
                   )}
-                  <div className="flex flex-col flex-1 p-6 bg-gradient-to-br from-white to-sky-50/40">
+                  <div className="flex flex-col flex-1 p-6 bg-gradient-to-br from-white to-amber-50/40">
                     <div className="flex items-center mb-3">
-                      <span className="text-xs text-blue-500 bg-blue-50 px-3 py-1 rounded-full">{formatDate(blog.createdAt)}</span>
-                      <span className="mx-2 text-blue-200">•</span>
-                      <span className="text-xs text-cyan-700 font-medium">{blog.anDanh ? 'Ẩn danh' : (blog.authorId?.fullName || 'Không xác định')}</span>
+                      <span className="text-xs text-amber-500 bg-amber-50 px-3 py-1 rounded-full">{formatDate(blog.createdAt)}</span>
+                      <span className="mx-2 text-amber-200">•</span>
+                      <span className="text-xs text-amber-700 font-medium">{blog.anDanh ? 'Ẩn danh' : (blog.authorId?.fullName || 'Không xác định')}</span>
                     </div>
-                    <h3 className="text-xl font-bold mb-3 text-blue-900 group-hover:text-cyan-700 transition-colors">{blog.title}</h3>
-                    <p className="text-blue-700 mb-4 text-sm flex-grow">{truncateContent(blog.content)}</p>
+                    <h3 className="text-xl font-bold mb-3 text-amber-900 group-hover:text-amber-700 transition-colors">{blog.title}</h3>
+                    <p className="text-amber-700 mb-4 text-sm flex-grow">{truncateContent(blog.content)}</p>
                     {/* Topics */}
                     {blog.topics && blog.topics.length > 0 && (
                       <div className="flex flex-wrap gap-2 mb-4">
                         {blog.topics.slice(0, 3).map((topic, idx) => (
-                          <span key={idx} className="text-xs bg-sky-50 text-cyan-700 px-2 py-1 rounded-full">
+                          <span key={idx} className="text-xs bg-amber-50 text-amber-700 px-2 py-1 rounded-full">
                             {topic}
                           </span>
                         ))}
                       </div>
                     )}
-                    <div className="flex justify-end mt-auto pt-3 border-t border-cyan-100">
-                      <span className="text-cyan-700 font-medium group-hover:text-blue-800 transition flex items-center text-sm">
+                    <div className="flex justify-end mt-auto pt-3 border-t border-amber-100">
+                      <span className="text-amber-700 font-medium group-hover:text-amber-800 transition flex items-center text-sm">
                         Đọc tiếp
                         <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -339,13 +339,13 @@ function BlogPage() {
             {/* Pagination - Blue theme */}
             {filteredBlogs.length > blogsPerPage && (
               <div className="flex justify-center mt-12">
-                <nav className="inline-flex bg-white rounded-lg shadow-lg overflow-hidden border border-cyan-100">
+                <nav className="inline-flex bg-white rounded-lg shadow-lg overflow-hidden border border-amber-100">
                   <button
                     onClick={() => paginate(Math.max(1, currentPage - 1))}
                     disabled={currentPage === 1}
                     className={currentPage === 1
-                      ? 'px-4 py-2 border-r border-cyan-100 flex items-center bg-blue-50 text-blue-300 cursor-not-allowed'
-                      : 'px-4 py-2 border-r border-cyan-100 flex items-center text-blue-700 hover:bg-cyan-50 hover:text-cyan-700'
+                      ? 'px-4 py-2 border-r border-amber-100 flex items-center bg-amber-50 text-amber-300 cursor-not-allowed'
+                      : 'px-4 py-2 border-r border-amber-100 flex items-center text-amber-700 hover:bg-amber-50 hover:text-amber-700'
                     }
                   >
                     <svg className="w-5 h-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -360,8 +360,8 @@ function BlogPage() {
                         key={pageNumber}
                         onClick={() => paginate(pageNumber)}
                         className={pageNumber === currentPage
-                          ? 'w-10 border-r border-cyan-100 bg-cyan-600 text-white font-medium'
-                          : 'w-10 border-r border-cyan-100 text-blue-700 hover:bg-cyan-50 hover:text-cyan-700'
+                          ? 'w-10 border-r border-amber-100 bg-amber-600 text-white font-medium'
+                          : 'w-10 border-r border-amber-100 text-amber-700 hover:bg-amber-50 hover:text-amber-700'
                         }
                       >
                         {pageNumber}
@@ -372,8 +372,8 @@ function BlogPage() {
                     onClick={() => paginate(Math.min(Math.ceil(filteredBlogs.length / blogsPerPage), currentPage + 1))}
                     disabled={currentPage === Math.ceil(filteredBlogs.length / blogsPerPage)}
                     className={currentPage === Math.ceil(filteredBlogs.length / blogsPerPage)
-                      ? 'px-4 py-2 flex items-center bg-blue-50 text-blue-300 cursor-not-allowed'
-                      : 'px-4 py-2 flex items-center text-blue-700 hover:bg-cyan-50 hover:text-cyan-700'
+                      ? 'px-4 py-2 flex items-center bg-amber-50 text-amber-300 cursor-not-allowed'
+                      : 'px-4 py-2 flex items-center text-amber-700 hover:bg-amber-50 hover:text-amber-700'
                     }
                   >
                     Sau
@@ -402,42 +402,42 @@ function BlogPage() {
               if (topTopics.length === 0) return null;
               return (
                 <div className="mt-16">
-                  <h2 className="text-2xl font-bold text-blue-800 mb-6 border-l-4 border-cyan-500 pl-4 bg-cyan-50 py-2 rounded-r-lg shadow-sm">
+                  <h2 className="text-2xl font-bold text-amber-800 mb-6 border-l-4 border-amber-500 pl-4 bg-amber-50 py-2 rounded-r-lg shadow-sm">
                     Bài viết theo chủ đề nổi bật
                   </h2>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {topTopics.map(topic => {
                       const topicBlogs = blogs.filter(blog => blog.topics?.includes(topic)).slice(0, 3);
                       return (
-                        <div key={topic} className="bg-white rounded-xl shadow-md p-6 border border-cyan-100 flex flex-col">
+                        <div key={topic} className="bg-white rounded-xl shadow-md p-6 border border-amber-100 flex flex-col">
                           <div className="flex items-center mb-4">
-                            <span className="text-lg font-semibold text-cyan-700 bg-cyan-50 px-4 py-1 rounded-full">{topic}</span>
+                            <span className="text-lg font-semibold text-amber-700 bg-amber-50 px-4 py-1 rounded-full">{topic}</span>
                           </div>
                           <div className="space-y-4">
                             {topicBlogs.map(blog => (
                               <Link
                                 key={blog._id}
                                 to={'/blogs/' + blog._id}
-                                className="flex items-center gap-3 hover:bg-cyan-50 rounded-lg p-3 transition"
+                                className="flex items-center gap-3 hover:bg-amber-50 rounded-lg p-3 transition"
                               >
                                 {/* Ảnh thu nhỏ vuông */}
                                 {blog.image || blog.thumbnail ? (
                                   <img
                                     src={blog.image || blog.thumbnail}
                                     alt={blog.title}
-                                    className="w-16 h-16 object-cover rounded-lg flex-shrink-0 border border-cyan-100 bg-white"
+                                    className="w-16 h-16 object-cover rounded-lg flex-shrink-0 border border-amber-100 bg-white"
                                   />
                                 ) : (
-                                  <div className="w-16 h-16 flex items-center justify-center bg-cyan-50 rounded-lg flex-shrink-0 border border-cyan-100">
-                                    <svg className="w-8 h-8 text-cyan-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <div className="w-16 h-16 flex items-center justify-center bg-amber-50 rounded-lg flex-shrink-0 border border-amber-100">
+                                    <svg className="w-8 h-8 text-amber-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                                     </svg>
                                   </div>
                                 )}
                                 <div className="flex-1 min-w-0">
-                                  <div className="font-medium text-blue-900 line-clamp-2 mb-1">{blog.title}</div>
+                                  <div className="font-medium text-amber-900 line-clamp-2 mb-1">{blog.title}</div>
                                   <div className="text-xs text-gray-500 mb-1">{formatDate(blog.createdAt)}</div>
-                                  <div className="text-xs text-cyan-700">{blog.anDanh ? 'Ẩn danh' : (blog.authorId?.fullName || 'Không xác định')}</div>
+                                  <div className="text-xs text-amber-700">{blog.anDanh ? 'Ẩn danh' : (blog.authorId?.fullName || 'Không xác định')}</div>
                                 </div>
                               </Link>
                             ))}
@@ -484,7 +484,7 @@ function BlogPage() {
                 'bg-rose-200 text-rose-700', // #3
               ];
               return (
-                <div className="bg-white p-8 rounded-2xl shadow-lg border border-sky-100">
+                <div className="bg-white p-8 rounded-2xl shadow-lg border border-amber-100">
                   <div className="flex flex-col sm:flex-row justify-center items-end gap-4">
                     {podium.map((author, idx) => (
                       author ? (

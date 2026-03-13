@@ -61,8 +61,8 @@ function Header() {
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
-              <span className="text-lg sm:text-xl font-semibold text-red-800">
-                HCM202_Group 5
+              <span className="text-lg sm:text-xl font-semibold text-amber-800">
+                MLN131
               </span>
             </Link>
           </div>

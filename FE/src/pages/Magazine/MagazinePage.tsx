@@ -78,7 +78,7 @@ const MagazinePage: React.FC = () => {
         // Fallback for pages without images
         return (
             <div className="h-full w-full flex flex-col items-center justify-center p-10 font-serif opacity-30">
-                <h2 className="text-3xl font-bold text-red-900 mb-4 uppercase">Trang {index + 1}</h2>
+                <h2 className="text-3xl font-bold text-amber-900 mb-4 uppercase">Trang {index + 1}</h2>
                 <p className="text-xl text-stone-600 italic">Hết nội dung</p>
                 <div className="mt-8 text-6xl">📖</div>
             </div>
@@ -137,7 +137,7 @@ const MagazinePage: React.FC = () => {
                 {/* Right Section: Controls Sidebar */}
                 <div className="w-full lg:w-80 flex flex-col items-center justify-center gap-8 bg-white/40 backdrop-blur-md p-8 rounded-3xl border border-white shadow-xl">
                     <div className="text-center">
-                        <h2 className="text-3xl font-serif text-red-900 font-bold mb-1">HCM202_Group 5</h2>
+                        <h2 className="text-3xl font-serif text-amber-900 font-bold mb-1">MLN131_Group 5</h2>
                         <p className="text-stone-500 uppercase tracking-widest text-xs">Phát hành 2026</p>
                     </div>
 
@@ -146,18 +146,18 @@ const MagazinePage: React.FC = () => {
                             <button
                                 onClick={prevPage}
                                 disabled={currentSpread === 0}
-                                className="w-14 h-14 rounded-full bg-white border border-stone-200 shadow-sm flex items-center justify-center text-red-900 hover:bg-red-800 hover:text-white transition-all disabled:opacity-20"
+                                className="w-14 h-14 rounded-full bg-white border border-stone-200 shadow-sm flex items-center justify-center text-amber-900 hover:bg-amber-800 hover:text-white transition-all disabled:opacity-20"
                             >
                                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
                             </button>
                             <div className="text-center min-w-[100px]">
-                                <div className="text-red-900 font-bold text-2xl leading-none">{currentSpread + 1}</div>
+                                <div className="text-amber-900 font-bold text-2xl leading-none">{currentSpread + 1}</div>
                                 <div className="text-stone-500 text-[10px] uppercase mt-1">Bản thảo</div>
                             </div>
                             <button
                                 onClick={nextPage}
                                 disabled={currentSpread === totalSpreads - 1}
-                                className="w-14 h-14 rounded-full bg-white border border-stone-200 shadow-sm flex items-center justify-center text-red-900 hover:bg-red-800 hover:text-white transition-all disabled:opacity-20"
+                                className="w-14 h-14 rounded-full bg-white border border-stone-200 shadow-sm flex items-center justify-center text-amber-900 hover:bg-amber-800 hover:text-white transition-all disabled:opacity-20"
                             >
                                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
                             </button>
@@ -171,7 +171,7 @@ const MagazinePage: React.FC = () => {
                             </div>
                             <div className="w-full bg-stone-200 h-1.5 rounded-full overflow-hidden">
                                 <motion.div
-                                    className="h-full bg-red-900"
+                                    className="h-full bg-amber-900"
                                     animate={{ width: `${((currentSpread + 1) / totalSpreads) * 100}%` }}
                                 />
                             </div>
@@ -186,7 +186,7 @@ const MagazinePage: React.FC = () => {
 
                     <button
                         onClick={() => setCurrentSpread(0)}
-                        className="mt-auto text-red-800 text-sm font-semibold hover:underline"
+                        className="mt-auto text-amber-800 text-sm font-semibold hover:underline"
                     >
                         Quay lại trang đầu
                     </button>
