@@ -2,24 +2,24 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Header from "../../components/layout/Header";
 import Footer from "../../components/layout/Footer";
-import Page1Img from "../../assets/Page1.png";
-import Page2Img from "../../assets/Page2.png";
-import Page3Img from "../../assets/Page3.png";
-import Page4Img from "../../assets/Page4.png";
-import Page5Img from "../../assets/Page5.png";
-import Page6Img from "../../assets/Page6.png";
-import Page7Img from "../../assets/Page7.png";
-import Page8Img from "../../assets/Page8.png";
-import Page9Img from "../../assets/Page9.png";
-import Page10Img from "../../assets/Page10.png";
-import Page11Img from "../../assets/Page11.png";
-import Page12Img from "../../assets/Page12.png";
-import Page13Img from "../../assets/Page13.png";
-import Page14Img from "../../assets/Page14.png";
-import Page15Img from "../../assets/Page15.png";
-import Page16Img from "../../assets/Page16.png";
-import Page17Img from "../../assets/Page17.png";
-import Page18Img from "../../assets/Page18.png";
+import Page1Img from "../../assets/1.png";
+import Page2Img from "../../assets/2.png";
+import Page3Img from "../../assets/3.png";
+import Page4Img from "../../assets/4.png";
+import Page5Img from "../../assets/5.png";
+import Page6Img from "../../assets/6.png";
+import Page7Img from "../../assets/7.png";
+import Page8Img from "../../assets/8.png";
+import Page9Img from "../../assets/9.png";
+import Page10Img from "../../assets/10.png";
+import Page11Img from "../../assets/11.png";
+import Page12Img from "../../assets/12.png";
+import Page13Img from "../../assets/13.png";
+import Page14Img from "../../assets/14.png";
+import Page15Img from "../../assets/15.png";
+import Page16Img from "../../assets/16.png";
+import Page17Img from "../../assets/17.png";
+import Page18Img from "../../assets/18.png";
 
 
 const MagazinePage: React.FC = () => {
@@ -137,7 +137,7 @@ const MagazinePage: React.FC = () => {
                 {/* Right Section: Controls Sidebar */}
                 <div className="w-full lg:w-80 flex flex-col items-center justify-center gap-8 bg-white/40 backdrop-blur-md p-8 rounded-3xl border border-white shadow-xl">
                     <div className="text-center">
-                        <h2 className="text-3xl font-serif text-amber-900 font-bold mb-1">MLN131_Group 5</h2>
+                        <h2 className="text-3xl font-serif text-amber-900 font-bold mb-1">MLN131_Group 3</h2>
                         <p className="text-stone-500 uppercase tracking-widest text-xs">Phát hành 2026</p>
                     </div>
 
