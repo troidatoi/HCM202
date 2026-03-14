@@ -38,10 +38,12 @@ const PORT = process.env.PORT || 5000;
 const allowedOrigins = [
   "https://mln111-1.onrender.com",
   "https://hcm202-group5.vercel.app",
+  "https://mln131-group3-app.vercel.app/",
   "http://localhost:5173",
   "http://localhost:3000",
   // Thêm các origins từ biến môi trường (phân tách bằng dấu phẩy)
   ...(process.env.ALLOWED_ORIGINS ? process.env.ALLOWED_ORIGINS.split(",") : []),
+  "*", // Cho phép tất cả origins tạm thời
 ];
 
 // Middleware
@@ -54,10 +56,13 @@ app.use(
       // Cho phép các yêu cầu không có origin (như mobile apps hoặc curl)
       if (!origin) return callback(null, true);
 
+      // Cho phép tất cả origins (deploy)
+      if (origin === "*") return callback(null, true);
+
       // Kiểm tra trong danh sách allowedOrigins
       // Dùng regex hoặc includes giúp linh hoạt hơn với trailing slashes
       const isAllowed = allowedOrigins.some(allowed =>
-        origin === allowed || origin === `${allowed}/`
+        allowed === "*" || origin === allowed || origin === `${allowed}/`
       );
 
       if (isAllowed) {
