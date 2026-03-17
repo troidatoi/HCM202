@@ -38,12 +38,12 @@ const PORT = process.env.PORT || 5000;
 const allowedOrigins = [
   "https://mln111-1.onrender.com",
   "https://hcm202-group5.vercel.app",
-  "https://mln131-group3-app.vercel.app/",
+  "https://mln131-group3-app.vercel.app",
+  "https://vnr202.vercel.app",  // Thêm origin thứ 2
   "http://localhost:5173",
   "http://localhost:3000",
   // Thêm các origins từ biến môi trường (phân tách bằng dấu phẩy)
-  ...(process.env.ALLOWED_ORIGINS ? process.env.ALLOWED_ORIGINS.split(",") : []),
-  "*", // Cho phép tất cả origins tạm thời
+  ...(process.env.ALLOWED_ORIGINS ? process.env.ALLOWED_ORIGINS.split(",").map(o => o.trim()) : []),
 ];
 
 // Middleware
