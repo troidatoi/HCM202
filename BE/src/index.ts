@@ -39,7 +39,8 @@ const allowedOrigins = [
   "https://mln111-1.onrender.com",
   "https://hcm202-group5.vercel.app",
   "https://mln131-group3-app.vercel.app",
-  "https://vnr202.vercel.app",  // Thêm origin thứ 2
+  "https://vnr202.vercel.app",
+  "https://vnr-202-six.vercel.app",
   "http://localhost:5173",
   "http://localhost:3000",
   // Thêm các origins từ biến môi trường (phân tách bằng dấu phẩy)
@@ -59,11 +60,13 @@ app.use(
       // Cho phép tất cả origins (deploy)
       if (origin === "*") return callback(null, true);
 
-      // Kiểm tra trong danh sách allowedOrigins
-      // Dùng regex hoặc includes giúp linh hoạt hơn với trailing slashes
-      const isAllowed = allowedOrigins.some(allowed =>
-        allowed === "*" || origin === allowed || origin === `${allowed}/`
-      );
+      // Kiểm tra trong danh sách allowedOrigins (không phân biệt trailing slash)
+      const isAllowed = allowedOrigins.some(allowed => {
+        if (allowed === "*") return true;
+        const normalizedAllowed = allowed.replace(/\/$/, "");
+        const normalizedOrigin = origin.replace(/\/$/, "");
+        return normalizedOrigin === normalizedAllowed || origin.startsWith(allowed);
+      });
 
       if (isAllowed) {
         callback(null, true);
